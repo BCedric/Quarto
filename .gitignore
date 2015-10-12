@@ -45,3 +45,5 @@ Temporary Items
 .apdisk
 bin/*
 
+src/Jeu/CaseOccupeeException.java
+bin/Interface/FenetrePrincipale.class
