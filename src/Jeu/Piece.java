@@ -1,5 +1,13 @@
 package Jeu;
 
+import java.util.ArrayList;
+
+import CaracteristiquesPiece.Couleur;
+import CaracteristiquesPiece.Forme;
+import CaracteristiquesPiece.Interieur;
+import CaracteristiquesPiece.Taille;
+
+
 public class Piece {
 	private Couleur couleur;
 	private Taille taille;
@@ -13,6 +21,23 @@ public class Piece {
 		this.taille = taille;
 		this.interieur = interieur;
 		this.forme = forme;
+	}
+	
+	public ArrayList<String> caracteristiquesCommunes(Piece p){
+		ArrayList<String> list = new ArrayList<String>();
+		if(this.couleur == p.getCouleur()){
+			list.add("couleur");
+		}
+		if(this.forme == p.forme){
+			list.add("forme");
+		}
+		if(this.interieur== p.interieur){
+			list.add("interieur");
+		}
+		if(this.taille== p.taille){
+			list.add("taille");
+		}
+		return list;
 	}
 	
 	public Couleur getCouleur() {
