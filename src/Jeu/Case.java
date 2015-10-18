@@ -1,6 +1,6 @@
 package Jeu;
 
-public abstract class Case {
+public class Case {
 	private int id;
 	private Piece piece;
 	
@@ -16,6 +16,8 @@ public abstract class Case {
 		}
 	}
 	
+	
+	
 	public Piece getPiece() {
 		return piece;
 	}
@@ -26,5 +28,9 @@ public abstract class Case {
 
 	public int getId() {
 		return id;
+	}
+
+	public boolean estVide() {
+		return this.piece == null;
 	}
 }
