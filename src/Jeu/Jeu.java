@@ -12,11 +12,13 @@ public class Jeu {
 	private ArrayList<Piece> pieces;
 	private Joueur j1;
 	private Joueur j2;
+	private Joueur actif;
 	
 	public Jeu(){
 		Plateau plateau = new Plateau();
-		j1 = new Joueur();
-		j2 = new Joueur();
+		j1 = new Joueur(this);
+		j2 = new Joueur(this);
+		this.actif = j1;
 		pieces.add(new Piece(Couleur.clair, Taille.grand, Interieur.plein, Forme.carree));
 		pieces.add(new Piece(Couleur.clair, Taille.grand, Interieur.plein, Forme.rond));
 		pieces.add(new Piece(Couleur.clair, Taille.grand, Interieur.vide, Forme.carree));
