@@ -1,11 +1,15 @@
 package Jeu;
 
+import java.util.ArrayList;
+
 public class Case {
 	private int id;
 	private Piece piece;
+	private ArrayList<Ligne> lignes;
 	
 	public Case(int id){
 		this.id = id;
+		lignes = new ArrayList<Ligne>();
 	}
 
 	public Piece getPiece() {
@@ -26,5 +30,9 @@ public class Case {
 
 	public boolean estVide() {
 		return this.piece == null;
+	}
+	
+	public void ajouterLigne(Ligne l){
+		this.lignes.add(l);
 	}
 }

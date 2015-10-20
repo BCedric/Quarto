@@ -8,6 +8,7 @@ public class Ligne {
 	public Ligne(Case[] cases) throws mauvaisNbCasesException{
 		for(Case c:cases){
 			this.cases.add(c);
+			c.ajouterLigne(this);
 		} if(this.cases.size() != 4){
 			throw new mauvaisNbCasesException();
 		}
