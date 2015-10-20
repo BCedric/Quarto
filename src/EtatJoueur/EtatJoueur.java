@@ -5,7 +5,11 @@ import Jeu.Joueur;
 import Jeu.Piece;
 
 public abstract class EtatJoueur {
-	private Joueur j;
+	protected Joueur j;
+	
+	public EtatJoueur(Joueur j){
+		this.j=j;
+	}
 	
 	public void choisirPiece(Piece p){
 		System.out.println("Vous ne pouvez pas choisir de pièce maintenant");
