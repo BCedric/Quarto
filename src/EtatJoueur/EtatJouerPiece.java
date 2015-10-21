@@ -11,12 +11,8 @@ public class EtatJouerPiece extends EtatJoueur{
 	}
 	
 	public void choisirCase(Case c){
-		try {
-			c.setPiece(j.getMain());
-		} catch (CaseOccupeeException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		j.getJeu().placerPiece(j.getMain(), c);
 		j.setMain(null);
 		this.j.setEtatCourant(j.getAttente());
 	}
