@@ -35,4 +35,8 @@ public class Case {
 	public void ajouterLigne(Ligne l){
 		this.lignes.add(l);
 	}
+	
+	public ArrayList<Ligne> getLignes(){
+		return this.lignes;
+	}
 }
