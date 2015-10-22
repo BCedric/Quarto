@@ -26,7 +26,7 @@ public class Jeu {
 		pieces.add(new Piece(Couleur.clair, Taille.grand, Interieur.plein, Forme.rond, 2));
 		pieces.add(new Piece(Couleur.clair, Taille.grand, Interieur.vide, Forme.carree, 3));
 		pieces.add(new Piece(Couleur.clair, Taille.grand, Interieur.vide, Forme.rond, 4));
-		pieces.add(new Piece(Couleur.clair, Taille.petit, Interieur.plein, Forme.carree, 4));
+		pieces.add(new Piece(Couleur.clair, Taille.petit, Interieur.plein, Forme.carree, 5));
 		pieces.add(new Piece(Couleur.clair, Taille.petit, Interieur.plein, Forme.rond, 6));
 		pieces.add(new Piece(Couleur.clair, Taille.petit, Interieur.vide, Forme.carree, 7));
 		pieces.add(new Piece(Couleur.clair, Taille.petit, Interieur.vide, Forme.rond, 8));

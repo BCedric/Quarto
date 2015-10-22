@@ -59,7 +59,8 @@ public class Plateau {
 	public Case choixCase(int n){
 		for(Case c:this.cases){
 			if(c.getId() == n){
-				return c;
+				if(c.estVide()) return c;
+				else return null;
 			}
 		}
 		return null;

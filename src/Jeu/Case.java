@@ -27,6 +27,13 @@ public class Case {
 	public int getId() {
 		return id;
 	}
+	
+	public boolean finPartie(){
+		for(Ligne l:this.lignes){
+			if(l.finPartie()) return true;
+		}
+		return false;
+	}
 
 	public boolean estVide() {
 		return this.piece == null;
