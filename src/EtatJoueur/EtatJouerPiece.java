@@ -14,7 +14,7 @@ public class EtatJouerPiece extends EtatJoueur{
 		
 		j.getJeu().placerPiece(j.getMain(), c);
 		j.setMain(null);
-		this.j.setEtatCourant(j.getAttente());
+		this.j.setEtatCourant(j.getChoixPiece());
 	}
 
 }

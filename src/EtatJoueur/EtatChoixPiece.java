@@ -12,11 +12,13 @@ public class EtatChoixPiece extends EtatJoueur{
 
 	public void choisirPiece(Piece p){
 		Jeu jeu = this.j.getJeu();
+		jeu.getPieces().remove(p);
 		if(j == jeu.getJ1()){
 			jeu.getJ2().setMain(p);
 		} else{
 			jeu.getJ1().setMain(p);
 		}
 		this.j.setEtatCourant(j.getAttente());
+		this.j.getJeu().getActif().setEtatCourant(this.j.getJeu().getActif().getJouerPiece());
 	}
 }
