@@ -13,16 +13,22 @@ public class Piece {
 	private Taille taille;
 	private Interieur interieur;
 	private Forme forme;
+	private int id;
 	
 	public Piece(Couleur couleur, Taille taille, Interieur interieur,
-			Forme forme) {
+			Forme forme, int id) {
 		super();
 		this.couleur = couleur;
 		this.taille = taille;
 		this.interieur = interieur;
 		this.forme = forme;
+		this.id = id;
 	}
 	
+	public int getId() {
+		return id;
+	}
+
 	public ArrayList<String> caracteristiquesCommunes(Piece p){
 		ArrayList<String> list = new ArrayList<String>();
 		if(this.couleur == p.getCouleur()){
