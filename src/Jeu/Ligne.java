@@ -5,7 +5,9 @@ import java.util.ArrayList;
 public class Ligne {
 	private ArrayList<Case> cases;
 	
+	
 	public Ligne(Case[] cases) throws mauvaisNbCasesException{
+		this.cases=new ArrayList<Case>();
 		for(Case c:cases){
 			this.cases.add(c);
 			c.ajouterLigne(this);
