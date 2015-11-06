@@ -1,5 +1,8 @@
 package EtatJoueur;
 
+import Interface.CaseIHM;
+import Interface.FenetreJeu;
+import Interface.PieceIHM;
 import Jeu.Case;
 import Jeu.Joueur;
 import Jeu.Piece;
@@ -11,10 +14,10 @@ public abstract class EtatJoueur {
 		this.j=j;
 	}
 	
-	public void choisirPiece(Piece p){
+	public void choisirPiece(Piece p, FenetreJeu fenetre, PieceIHM pihm){
 		System.out.println("Vous ne pouvez pas choisir de pièce maintenant");
 	}
-	public void choisirCase(Case c){
+	public void choisirCase(Case c, FenetreJeu fenetre, CaseIHM pihm){
 		System.out.println("Vous ne pouvez pas choisir d'emplacement maintenant");
 	}
 
