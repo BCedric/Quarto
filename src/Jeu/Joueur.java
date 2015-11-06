@@ -4,6 +4,9 @@ import EtatJoueur.EtatAttente;
 import EtatJoueur.EtatChoixPiece;
 import EtatJoueur.EtatJouerPiece;
 import EtatJoueur.EtatJoueur;
+import Interface.CaseIHM;
+import Interface.FenetreJeu;
+import Interface.PieceIHM;
 
 public class Joueur {
 	private Jeu jeu;
@@ -21,13 +24,13 @@ public class Joueur {
 		this.jeu = j;
 	}
 	
-	public void choisirPieceAction(Piece p){
-		this.etatCourant.choisirPiece(p);
+	public void choisirPieceAction(Piece p, FenetreJeu fenetre, PieceIHM pihm){
+		this.etatCourant.choisirPiece(p, fenetre, pihm);
 	}
 	
 
-	public void choisirCaseAction(Case c){
-		this.etatCourant.choisirCase(c);
+	public void choisirCaseAction(Case c, FenetreJeu fenetre, CaseIHM caseihm){
+		this.etatCourant.choisirCase(c, fenetre, caseihm);
 	}
 	
 	public Jeu getJeu() {
