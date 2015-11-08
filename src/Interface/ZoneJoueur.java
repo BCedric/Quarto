@@ -7,6 +7,7 @@ import java.awt.FlowLayout;
 import Jeu.Joueur;
 
 import javax.swing.BorderFactory;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class ZoneJoueur extends JPanel{
@@ -18,6 +19,9 @@ public class ZoneJoueur extends JPanel{
 		this.setPreferredSize(new Dimension(100, 150));
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 		this.setLayout(new FlowLayout());
+		if(j.getJeu().getJ1() == j){
+			this.add(new JLabel("Joueur 1"));
+		} else this.add(new JLabel("Joueur 2"));
 	}
 
 	public Joueur getJ() {
