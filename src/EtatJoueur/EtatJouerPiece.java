@@ -2,12 +2,16 @@ package EtatJoueur;
 
 import java.awt.Component;
 
+import javax.swing.JFrame;
+
 import Interface.CaseIHM;
+import Interface.FenetreFinDePartie;
 import Interface.FenetreJeu;
 import Interface.PieceIHM;
 import Jeu.Case;
 import Jeu.CaseOccupeeException;
 import Jeu.Joueur;
+import Jeu.Ligne;
 
 public class EtatJouerPiece extends EtatJoueur{
 
@@ -29,8 +33,13 @@ public class EtatJouerPiece extends EtatJoueur{
 		caseihm.add(p);
 		p.setLocation(caseihm.getWidth()/2-p.getWidth()/2, caseihm.getHeight()/2-p.getHeight()/2);
 		fenetre.repaint();
-		if(c.finPartie()){
-			fenetre.finPartie();
+		for(Ligne l:c.getLignes()){
+			if(l.finPartie()){
+				fenetre.finPartie();
+				JFrame fin = new FenetreFinDePartie(j.getJeu(),l);
+				fin.setVisible(true);
+				break;
+			}
 		}
 		
 	}
