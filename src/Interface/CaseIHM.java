@@ -24,7 +24,7 @@ public class CaseIHM extends JPanel{
 		this.j =j;
 		setLayout(new FlowLayout());
 		this.setPreferredSize(new Dimension(85, 85));
-		
+		this.setOpaque(false);
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 	}
 

@@ -22,6 +22,7 @@ public class ZoneJoueur extends JPanel{
 		if(j.getJeu().getJ1() == j){
 			this.add(new JLabel("Joueur 1"));
 		} else this.add(new JLabel("Joueur 2"));
+		this.setOpaque(false);
 	}
 
 	public Joueur getJ() {
