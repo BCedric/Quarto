@@ -15,26 +15,21 @@ import javax.swing.JPanel;
 import Jeu.Jeu;
 import Jeu.Piece;
 
-public class PieceIHM extends JPanel{
+public class PieceIHM extends ConteneurBackground{
 	private int id;
-	private Image img;
 	private Jeu j;
 	private JComponent conteneur;
 	
 	public PieceIHM(String img, int i, Jeu j, JPanel conteneur){
+		super(img);
 		this.setConteneur(conteneur);
 		this.id = i;
 		this.j = j;
-		this.img = new ImageIcon(img).getImage();
 		this.setPreferredSize(new Dimension(80, 80));
 	}
 	
 	 public Jeu getJ() {
 		return j;
-	}
-
-	public void paintComponent(Graphics g) {
-		    g.drawImage(img, 0, 0, null);
 	}
 	 
 	public int getId() {

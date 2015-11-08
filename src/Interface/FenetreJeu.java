@@ -26,7 +26,7 @@ public class FenetreJeu extends JFrame{
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		JPanel panel1 =new JPanel();
-		JPanel panel2 =new JPanel();
+		JPanel panel2 =new ConteneurBackground("img/texture1.jpg");
 		panel2.setLayout(new BorderLayout());
 		panel1.setBorder(BorderFactory.createLineBorder(Color.black));
 		
