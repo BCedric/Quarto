@@ -33,7 +33,7 @@ public class FenetreFinDePartie extends JFrame{
 		else joueur="J2";
 		
 		conteneur.add(new JLabel("Le joueur "+joueur+" gagne la partie"));
-		conteneur.add(new JLabel("La ligne à en commun : "+carac));
+		conteneur.add(new JLabel("La ligne a en commun : "+carac));
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 }
