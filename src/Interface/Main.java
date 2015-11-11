@@ -13,7 +13,7 @@ public class Main {
 //		FenetrePrincipale fenetre = new FenetrePrincipale();
 //		fenetre.setVisible(true);
 		
-		JFrame jeu=new FenetreJeu("img/texture.jpg", new Jeu());
+		 new Jeu();
 		
 		
 	}
