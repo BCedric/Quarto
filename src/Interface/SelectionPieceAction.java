@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import EtatJoueur.EtatChoixPiece;
 import Jeu.Jeu;
 import Jeu.Piece;
 
@@ -21,7 +22,11 @@ public class SelectionPieceAction implements MouseListener {
 		Jeu j =p.getJ();
 		Piece piece = p.getJ().choixPiece(p.getId());
 		if(piece != null){
-			j.getNonActif().choisirPieceAction(piece, fenetre, p);
+			if(j.getNonActif().getEtatCourant() instanceof EtatChoixPiece){
+				fenetre.choisirPiece(p);
+			}
+			j.getNonActif().choisirPieceAction(piece);
+			
 		}	
 	}
 

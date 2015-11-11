@@ -14,7 +14,7 @@ public class EtatChoixPiece extends EtatJoueur{
 		super(j);
 	}
 
-	public void choisirPiece(Piece p, FenetreJeu fenetre, PieceIHM pihm){
+	public void choisirPiece(Piece p){
 		Jeu jeu = this.j.getJeu();
 		jeu.getPieces().remove(p);
 		if(j == jeu.getJ1()){
@@ -23,12 +23,6 @@ public class EtatChoixPiece extends EtatJoueur{
 			jeu.getJ1().setMain(p);
 		}
 		this.j.setEtatCourant(j.getAttente());
-		this.j.getJeu().getActif().setEtatCourant(this.j.getJeu().getActif().getJouerPiece());
-		
-		pihm.getConteneur().remove(pihm);
-		fenetre.getZone(j.getJeu().getActif()).add(pihm);
-		pihm.setLocation(fenetre.getZone(j.getJeu().getActif()).getWidth()/2-pihm.getWidth()/2, fenetre.getZone(j.getJeu().getActif()).getHeight()/2-pihm.getHeight()/2);
-		fenetre.repaint();
-		
+		this.j.getJeu().getActif().setEtatCourant(this.j.getJeu().getActif().getJouerPiece());		
 	}
 }

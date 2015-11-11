@@ -19,9 +19,10 @@ public class SelectionCaseAction implements MouseListener{
 		CaseIHM caseihm = (CaseIHM) arg0.getSource();
 		Jeu j =caseihm.getJ();
 		Case c = j.choixCase(caseihm.getId());
+		fenetre.jouerPiece(caseihm);
 		
 		if(c != null){
-			j.getActif().choisirCaseAction(c, fenetre, caseihm);
+			j.getActif().choisirCaseAction(c);
 		}	
 		j.changerActif();
 	}

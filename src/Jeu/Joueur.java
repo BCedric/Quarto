@@ -24,13 +24,13 @@ public class Joueur {
 		this.jeu = j;
 	}
 	
-	public void choisirPieceAction(Piece p, FenetreJeu fenetre, PieceIHM pihm){
-		this.etatCourant.choisirPiece(p, fenetre, pihm);
+	public void choisirPieceAction(Piece p){
+		this.etatCourant.choisirPiece(p);
 	}
 	
 
-	public void choisirCaseAction(Case c, FenetreJeu fenetre, CaseIHM caseihm){
-		this.etatCourant.choisirCase(c, fenetre, caseihm);
+	public void choisirCaseAction(Case c){
+		this.etatCourant.choisirCase(c);
 	}
 	
 	public Jeu getJeu() {

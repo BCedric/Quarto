@@ -14,10 +14,10 @@ public abstract class EtatJoueur {
 		this.j=j;
 	}
 	
-	public void choisirPiece(Piece p, FenetreJeu fenetre, PieceIHM pihm){
+	public void choisirPiece(Piece p){
 		System.out.println("Vous ne pouvez pas choisir de pièce maintenant");
 	}
-	public void choisirCase(Case c, FenetreJeu fenetre, CaseIHM pihm){
+	public void choisirCase(Case c){
 		System.out.println("Vous ne pouvez pas choisir d'emplacement maintenant");
 	}
 
