@@ -2,10 +2,13 @@ package Jeu;
 
 import java.util.ArrayList;
 
+import javax.swing.JFrame;
+
 import CaracteristiquesPiece.Couleur;
 import CaracteristiquesPiece.Forme;
 import CaracteristiquesPiece.Interieur;
 import CaracteristiquesPiece.Taille;
+import Interface.FenetreJeu;
 
 public class Jeu {
 	private Plateau plateau;
@@ -13,8 +16,10 @@ public class Jeu {
 	private Joueur j1;
 	private Joueur j2;
 	private Joueur actif;
+	private FenetreJeu vue;
 	
 	public Jeu(){
+
 		this.plateau = new Plateau();
 		j1 = new Joueur(this);
 		j2 = new Joueur(this);
@@ -38,6 +43,7 @@ public class Jeu {
 		pieces.add(new Piece(Couleur.sombre, Taille.petit, Interieur.plein, Forme.rond, 14));
 		pieces.add(new Piece(Couleur.sombre, Taille.petit, Interieur.vide, Forme.carree, 15));
 		pieces.add(new Piece(Couleur.sombre, Taille.petit, Interieur.vide, Forme.rond, 16));
+		this.vue = new FenetreJeu("img/texture.jpg", this);
 	}
 	
 	public boolean placerPiece(Piece p, Case c){
@@ -54,6 +60,15 @@ public class Jeu {
 		}
 		return false;
 	}
+	public Plateau getPlateau() {
+		return plateau;
+	}
+
+	public FenetreJeu getVue() {
+		return vue;
+	}
+
+	
 	
 	public Piece choixPiece(int n){
 		for(Piece p:this.pieces){
