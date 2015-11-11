@@ -2,6 +2,7 @@ package Interface;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import Jeu.Joueur;
@@ -23,6 +24,24 @@ public class ZoneJoueur extends JPanel{
 			this.add(new JLabel("Joueur 1"));
 		} else this.add(new JLabel("Joueur 2"));
 		this.setOpaque(false);
+	}
+	
+	public void insererPiece(PieceIHM p){
+		this.add(p);
+		p.setLocation(this.getWidth()/2-p.getWidth()/2, this.getHeight()/2-p.getHeight()/2);
+		this.repaint();
+	}
+	
+	public PieceIHM retirerPiece(){
+		for(Component comp:this.getComponents()){
+			if(comp instanceof PieceIHM){
+				this.remove(comp);
+				this.repaint();
+				return (PieceIHM) comp;
+			}
+		}
+		
+		return null;
 	}
 
 	public Joueur getJ() {

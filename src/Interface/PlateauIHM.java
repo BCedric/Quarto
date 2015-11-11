@@ -1,9 +1,11 @@
 package Interface;
 
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -26,5 +28,15 @@ public class PlateauIHM extends ConteneurBackground{
 				add(caseIhm);
 			}
 		}
+	}
+	
+	public CaseIHM getCase(int i){
+		if(i<1 || i>16) return null;
+		for(Component c:this.getComponents()){
+			if(c instanceof CaseIHM && ((CaseIHM) c).getId()==i){
+				return (CaseIHM) c;
+			}
+		}
+		return null;
 	}
 }

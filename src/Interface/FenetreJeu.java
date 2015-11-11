@@ -16,13 +16,14 @@ import Jeu.Joueur;
 
 public class FenetreJeu extends JFrame{
 	
-	private JPanel zoneJ1;
-	private JPanel zoneJ2;
-	private JPanel plateau;
-	private JPanel piecesDispo;
+	private ZoneJoueur zoneJ1;
+	private ZoneJoueur zoneJ2;
+	private PlateauIHM plateau;
+	private PiecesDispo piecesDispo;
+	private Jeu j;
 	
 	public FenetreJeu(String img, Jeu j){
-		
+		this.j=j;
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		JPanel panel1 =new JPanel();
@@ -48,24 +49,41 @@ public class FenetreJeu extends JFrame{
 		this.setVisible(true);
 	}
 	
-	public JPanel getZone(Joueur j){
+	public void jouerPiece(CaseIHM c){
+		PieceIHM p=null;
+		if(this.zoneJ1.getJ() == this.j.getActif()){
+			p=zoneJ1.retirerPiece();
+		} else p=zoneJ2.retirerPiece();
+		c.add(p);
+		p.setLocation(c.getWidth()/2-p.getWidth()/2, c.getHeight()/2-p.getHeight()/2);
+		c.repaint();
+	}
+	
+	public void choisirPiece(PieceIHM p){
+		this.piecesDispo.retirerPiece(p);
+		if(this.zoneJ1.getJ() == this.j.getActif()){
+			zoneJ1.insererPiece(p);
+		} else zoneJ2.insererPiece(p);
+	}
+	
+	public ZoneJoueur getZone(Joueur j){
 		if(((ZoneJoueur) this.zoneJ1).getJ() == j) return this.zoneJ1;
 		else return this.zoneJ2;
 	}
 
-	public JPanel getZoneJ1() {
+	public ZoneJoueur getZoneJ1() {
 		return zoneJ1;
 	}
 
-	public JPanel getZoneJ2() {
+	public ZoneJoueur getZoneJ2() {
 		return zoneJ2;
 	}
 
-	public JPanel getPlateau() {
+	public PlateauIHM getPlateau() {
 		return plateau;
 	}
 
-	public JPanel getPiecesDispo() {
+	public PiecesDispo getPiecesDispo() {
 		return piecesDispo;
 	}
 

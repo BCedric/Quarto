@@ -27,6 +27,11 @@ public class CaseIHM extends JPanel{
 		this.setOpaque(false);
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 	}
+	
+	public void insererPiece(PieceIHM p){
+		this.add(p);
+		this.repaint();
+	}
 
 	public int getId() {
 		return id;
