@@ -69,4 +69,8 @@ public class Plateau {
 	public ArrayList<Ligne> getLignes(){
 		return this.lignes;
 	}
+	
+	public ArrayList<Case> getCases(){
+		return this.cases;
+	}
 }
