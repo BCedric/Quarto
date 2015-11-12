@@ -29,8 +29,8 @@ public class Joueur {
 	}
 	
 
-	public void choisirCaseAction(Case c){
-		this.etatCourant.choisirCase(c);
+	public boolean choisirCaseAction(Case c){
+		return this.etatCourant.choisirCase(c);
 	}
 	
 	public Jeu getJeu() {

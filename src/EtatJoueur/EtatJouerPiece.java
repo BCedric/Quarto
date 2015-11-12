@@ -19,24 +19,15 @@ public class EtatJouerPiece extends EtatJoueur{
 		super(j);
 	}
 	
-	public void choisirCase(Case c){
+	public boolean choisirCase(Case c){
 		
-		FenetreJeu fenetre = j.getJeu().getVue();
+		
 		boolean finPartie;
 		finPartie = j.getJeu().placerPiece(j.getMain(), c);
 		j.setMain(null);
 		this.j.setEtatCourant(j.getChoixPiece());
 		
+		return finPartie;
 		
-		if(finPartie){
-			for(Ligne l:c.getLignes()){
-				if(l.finPartie()){
-					fenetre.finPartie();
-					JFrame fin = new FenetreFinDePartie(j.getJeu(),l);
-					fin.setVisible(true);
-					break;
-				}
-			}
-		}
 	}
 }

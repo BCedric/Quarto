@@ -17,8 +17,9 @@ public abstract class EtatJoueur {
 	public void choisirPiece(Piece p){
 		System.out.println("Vous ne pouvez pas choisir de pièce maintenant");
 	}
-	public void choisirCase(Case c){
+	public boolean choisirCase(Case c){
 		System.out.println("Vous ne pouvez pas choisir d'emplacement maintenant");
+		return false;
 	}
 
 }

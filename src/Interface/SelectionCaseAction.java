@@ -3,8 +3,11 @@ package Interface;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JFrame;
+
 import Jeu.Case;
 import Jeu.Jeu;
+import Jeu.Ligne;
 import Jeu.Piece;
 
 public class SelectionCaseAction implements MouseListener{
@@ -22,7 +25,17 @@ public class SelectionCaseAction implements MouseListener{
 		fenetre.jouerPiece(caseihm);
 		
 		if(c != null){
-			j.getActif().choisirCaseAction(c);
+			if(j.getActif().choisirCaseAction(c)){
+				for(Ligne l:c.getLignes()){
+					if(l.finPartie()){
+						fenetre.finPartie();
+						JFrame fin = new FenetreFinDePartie(j,l);
+						fin.setVisible(true);
+						break;
+					}
+				}
+				
+			}
 		}	
 		j.changerActif();
 	}
