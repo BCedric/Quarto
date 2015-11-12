@@ -86,18 +86,14 @@ public class Jeu {
 				actif.choisirCaseAction(c);
 				if(c.finPartie()) break;
 				c=null;
+				
 			}
 			System.out.println("Fin de partie");
 		}
 	}
 	
-	public boolean placerPiece(Piece p, Case c){
-		try {
-			c.setPiece(p);
-		} catch (CaseOccupeeException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public boolean placerPiece(Piece p, Case c){		
+		c.setPiece(p);
 		for(Ligne l : c.getLignes()){
 			if(l.finPartie()){
 				return true;

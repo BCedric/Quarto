@@ -16,12 +16,8 @@ public class Case {
 		return piece;
 	}
 
-	public void setPiece(Piece piece) throws CaseOccupeeException {
-		if(this.piece == null){
-			this.piece = piece;
-		} else{
-			throw new CaseOccupeeException();
-		}
+	public void setPiece(Piece piece) {
+		this.piece = piece;
 	}
 
 	public int getId() {
