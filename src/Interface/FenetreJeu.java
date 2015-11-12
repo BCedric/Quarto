@@ -44,8 +44,11 @@ public class FenetreJeu extends JFrame{
 		panel2.add(this.zoneJ2, BorderLayout.NORTH);
 		
 		this.setContentPane(panel2);
-		
 		this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
+		
+	}
+	
+	public void jouer(){
 		this.setVisible(true);
 	}
 	

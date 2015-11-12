@@ -1,6 +1,7 @@
 package Jeu;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import javax.swing.JFrame;
 
@@ -18,8 +19,12 @@ public class Jeu {
 	private Joueur actif;
 	private FenetreJeu vue;
 	
-	public Jeu(){
-
+	public Jeu(boolean b){
+		this.build();
+		if(b) this.vue = new FenetreJeu("img/texture.jpg", this);
+	}
+	
+	private void build(){
 		this.plateau = new Plateau();
 		j1 = new Joueur(this);
 		j2 = new Joueur(this);
@@ -43,7 +48,48 @@ public class Jeu {
 		pieces.add(new Piece(Couleur.sombre, Taille.petit, Interieur.plein, Forme.rond, 14));
 		pieces.add(new Piece(Couleur.sombre, Taille.petit, Interieur.vide, Forme.carree, 15));
 		pieces.add(new Piece(Couleur.sombre, Taille.petit, Interieur.vide, Forme.rond, 16));
-		this.vue = new FenetreJeu("img/texture.jpg", this);
+	}
+	
+	public void jouer(){
+		if(this.vue != null){
+			this.vue.jouer();
+		} else {
+			Scanner sc = new Scanner(System.in);
+			Case c = null;
+			Piece p = null;
+			int n;
+			while(true){
+				Joueur actif=this.getActif();
+				Joueur nonActif=this.getNonActif();
+				
+				while(p==null){
+					if(this.getJ1() == actif){
+						System.out.println("J2 choisi une piece");
+					} else {
+						System.out.println("J1 choisi une piece");
+					}
+					n = sc.nextInt();
+					p = this.choixPiece(n);
+				}
+				nonActif.choisirPieceAction(p);
+				p=null;
+				
+				while(c == null){
+					if(this.getJ1() == actif){
+						System.out.println("J1 choisi une case");
+					} else {
+						System.out.println("J2 choisi une case");
+					}
+					n=sc.nextInt();
+					c = this.choixCase(n);
+				}
+				actif.choisirCaseAction(c);
+				if(c.finPartie()) break;
+				c=null;
+				this.changerActif();
+			}
+			System.out.println("Fin de partie");
+		}
 	}
 	
 	public boolean placerPiece(Piece p, Case c){

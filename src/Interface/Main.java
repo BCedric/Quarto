@@ -10,12 +10,8 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-//		FenetrePrincipale fenetre = new FenetrePrincipale();
-//		fenetre.setVisible(true);
 		
-		 new Jeu();
-		
-		
+		 new Jeu(true).jouer();
 	}
 
 }
