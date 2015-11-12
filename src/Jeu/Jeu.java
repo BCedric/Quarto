@@ -86,7 +86,6 @@ public class Jeu {
 				actif.choisirCaseAction(c);
 				if(c.finPartie()) break;
 				c=null;
-				this.changerActif();
 			}
 			System.out.println("Fin de partie");
 		}

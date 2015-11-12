@@ -37,7 +37,6 @@ public class SelectionCaseAction implements MouseListener{
 				
 			}
 		}	
-		j.changerActif();
 	}
 
 	public void mouseEntered(MouseEvent arg0) {

@@ -29,7 +29,7 @@ public class FenetreFinDePartie extends JFrame{
 		for(String s:l.caracteristiquesCommunes()){
 			carac=carac+" "+s;
 		}
-		if(j.getActif() == j.getJ1()) joueur = "J1";
+		if(j.getNonActif() == j.getJ1()) joueur = "J1";
 		else joueur="J2";
 		
 		conteneur.add(new JLabel("Le joueur "+joueur+" gagne la partie"));

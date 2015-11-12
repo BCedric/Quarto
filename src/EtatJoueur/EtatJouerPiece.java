@@ -20,14 +20,12 @@ public class EtatJouerPiece extends EtatJoueur{
 	}
 	
 	public boolean choisirCase(Case c){
-		
-		
 		boolean finPartie;
 		finPartie = j.getJeu().placerPiece(j.getMain(), c);
 		j.setMain(null);
 		this.j.setEtatCourant(j.getChoixPiece());
+		j.getJeu().changerActif();
 		
 		return finPartie;
-		
 	}
 }
