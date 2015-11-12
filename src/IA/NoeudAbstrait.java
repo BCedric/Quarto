@@ -2,6 +2,10 @@ package IA;
 
 import java.util.ArrayList;
 
+import Jeu.Case;
+import Jeu.CaseOccupeeException;
+import Jeu.Jeu;
+
 public abstract class NoeudAbstrait {
 	
 	protected int valeur;
@@ -15,6 +19,13 @@ public abstract class NoeudAbstrait {
 	
 	public abstract void calculValeurNoeud();
 	public abstract void ajouterFils();
+	
+	public void annulerCoup(Jeu j, Case c){
+		j.changerActif();
+		j.getActif().setMain(c.getPiece());
+		c.setPiece(null);
+		j.getActif().setEtatCourant(j.getActif().getJouerPiece());
+	}
 	
 	public boolean estFeuille(){
 		return this.fils.isEmpty();
@@ -30,6 +41,8 @@ public abstract class NoeudAbstrait {
 
 	public NoeudAbstrait getPere() {
 		return pere;
-	}	
+	}
+
+	
 	
 }
