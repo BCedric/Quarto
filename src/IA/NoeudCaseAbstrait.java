@@ -6,19 +6,19 @@ import Jeu.Case;
 import Jeu.CaseOccupeeException;
 import Jeu.Jeu;
 
-public abstract class NoeudAbstrait {
+public abstract class NoeudCaseAbstrait {
 	
 	protected int valeur;
-	protected ArrayList<NoeudAbstrait> fils;
-	protected NoeudAbstrait pere;
+	protected ArrayList<NoeudCaseAbstrait> fils;
+	protected NoeudCaseAbstrait pere;
 
-	public NoeudAbstrait( NoeudAbstrait pere){
+	public NoeudCaseAbstrait( NoeudCaseAbstrait pere){
 		this.pere=pere;
-		this.fils=new ArrayList<NoeudAbstrait>();
+		this.fils=new ArrayList<NoeudCaseAbstrait>();
 	}
 	
 	public abstract void calculValeurNoeud();
-	public abstract NoeudAbstrait ajouterFils();
+	public abstract NoeudCaseAbstrait ajouterFils();
 	
 	public void calculIA(Jeu j, ArrayList<Case> coups, int prof){
 		if(prof == 0 || j.isFinPartie() ){
@@ -57,11 +57,11 @@ public abstract class NoeudAbstrait {
 		return valeur;
 	}
 
-	public ArrayList<NoeudAbstrait> getFils() {
+	public ArrayList<NoeudCaseAbstrait> getFils() {
 		return fils;
 	}
 
-	public NoeudAbstrait getPere() {
+	public NoeudCaseAbstrait getPere() {
 		return pere;
 	}	
 }

@@ -1,13 +1,8 @@
 package IA;
 
-import java.util.ArrayList;
+public class NoeudCaseMin extends NoeudCaseAbstrait{
 
-import Jeu.Jeu;
-import Jeu.Case;
-
-public class NoeudMax extends NoeudAbstrait{
-
-	public NoeudMax(NoeudAbstrait pere) {
+	public NoeudCaseMin(NoeudCaseAbstrait pere) {
 		super(pere);
 	}
 
@@ -17,18 +12,19 @@ public class NoeudMax extends NoeudAbstrait{
 			//TODO evaluation
 		} else {
 			int val = this.fils.get(0).getValeur();
-			for(NoeudAbstrait n:this.fils){
-				if(val < n.getValeur()){
+			for(NoeudCaseAbstrait n:this.fils){
+				if(val > n.getValeur()){
 					val = n.getValeur();
 				}
 			}
 			this.valeur = val;
 		}
+		
 	}
-	
+
 	@Override
-	public NoeudAbstrait ajouterFils() {
-		NoeudAbstrait n = new NoeudMin(this);
+	public NoeudCaseAbstrait ajouterFils() {
+		NoeudCaseAbstrait n = new NoeudCaseMax(this);
 		this.fils.add(n);
 		return n;
 	}
