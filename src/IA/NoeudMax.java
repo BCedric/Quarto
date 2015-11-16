@@ -26,13 +26,6 @@ public class NoeudMax extends NoeudAbstrait{
 		}
 	}
 	
-	public void calculIA(Jeu j, ArrayList<Case> coups, int prof){
-		for(Case c:coups){
-			
-			j.getActif().choisirCaseAction(c);
-		}
-	}
-
 	@Override
 	public NoeudAbstrait ajouterFils() {
 		NoeudAbstrait n = new NoeudMin(this);
