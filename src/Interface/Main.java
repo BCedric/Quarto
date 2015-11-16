@@ -2,7 +2,6 @@ package Interface;
 
 import javax.swing.JFrame;
 
-import IA.NoeudMax;
 import Jeu.Case;
 import Jeu.CaseOccupeeException;
 import Jeu.Jeu;
