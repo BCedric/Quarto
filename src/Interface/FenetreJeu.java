@@ -95,8 +95,6 @@ public class FenetreJeu extends JFrame{
 		System.out.println("fin de partie");
 		this.piecesDispo.removeAll();
 		this.piecesDispo.add(text);
-		
-		
 		this.repaint();
 	}
 	
