@@ -38,6 +38,15 @@ public abstract class NoeudAbstrait {
 		j.getActif().setMain(c.getPiece());
 		c.setPiece(null);
 		j.getActif().setEtatCourant(j.getActif().getJouerPiece());
+		if(j.isFinPartie()) j.setFinPartie(false);
+	}
+	
+	public ArrayList<Case> getCoups(Jeu j){
+		ArrayList<Case> coups = new ArrayList<Case>();
+		for(Case c:j.getPlateau().getCases()){
+			if(c.estVide()) coups.add(c);
+		}
+		return coups;
 	}
 	
 	public boolean estFeuille(){
@@ -54,8 +63,5 @@ public abstract class NoeudAbstrait {
 
 	public NoeudAbstrait getPere() {
 		return pere;
-	}
-
-	
-	
+	}	
 }
