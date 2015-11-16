@@ -18,6 +18,7 @@ public class Jeu {
 	private Joueur j2;
 	private Joueur actif;
 	private FenetreJeu vue;
+	private boolean finPartie;
 	
 	public Jeu(boolean b){
 		this.build();
@@ -26,6 +27,7 @@ public class Jeu {
 	
 	private void build(){
 		this.plateau = new Plateau();
+		this.finPartie = false;
 		j1 = new Joueur(this);
 		j2 = new Joueur(this);
 		j1.setEtatCourant(j1.getAttente());
@@ -50,6 +52,7 @@ public class Jeu {
 		pieces.add(new Piece(Couleur.sombre, Taille.petit, Interieur.vide, Forme.rond, 16));
 	}
 	
+
 	public void jouer(){
 		if(this.vue != null){
 			this.vue.jouer();
@@ -152,6 +155,14 @@ public class Jeu {
 
 	public Joueur getJ2() {
 		return j2;
+	}
+	
+	public boolean isFinPartie() {
+		return finPartie;
+	}
+
+	public void setFinPartie(boolean finPartie) {
+		this.finPartie = finPartie;
 	}
 
 }

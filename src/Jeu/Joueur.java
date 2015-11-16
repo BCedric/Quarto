@@ -30,7 +30,8 @@ public class Joueur {
 	
 
 	public boolean choisirCaseAction(Case c){
-		return this.etatCourant.choisirCase(c);
+		this.jeu.setFinPartie(this.etatCourant.choisirCase(c));
+		return this.jeu.isFinPartie();
 	}
 	
 	public Jeu getJeu() {
