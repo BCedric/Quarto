@@ -18,7 +18,20 @@ public abstract class NoeudAbstrait {
 	}
 	
 	public abstract void calculValeurNoeud();
-	public abstract void ajouterFils();
+	public abstract NoeudAbstrait ajouterFils();
+	
+	public void calculIA(Jeu j, ArrayList<Case> coups, int prof){
+		if(prof == 0 || j.isFinPartie() ){
+			this.calculValeurNoeud();
+		} else {
+			for(Case c:coups){
+				j.getActif().choisirCaseAction(c);
+				this.ajouterFils().calculIA(j,this.getCoups(j), prof-1);
+				this.calculValeurNoeud();
+				this.annulerCoup(j, c);
+			}
+		}
+	}
 	
 	public void annulerCoup(Jeu j, Case c){
 		j.changerActif();

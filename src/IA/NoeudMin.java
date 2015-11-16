@@ -23,8 +23,10 @@ public class NoeudMin extends NoeudAbstrait{
 	}
 
 	@Override
-	public void ajouterFils() {
-		this.fils.add(new NoeudMax(this));
+	public NoeudAbstrait ajouterFils() {
+		NoeudAbstrait n = new NoeudMax(this);
+		this.fils.add(n);
+		return n;
 	}
 
 }
