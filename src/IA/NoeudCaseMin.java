@@ -1,9 +1,11 @@
 package IA;
 
+import Jeu.Case;
+
 public class NoeudCaseMin extends NoeudCaseAbstrait{
 
-	public NoeudCaseMin(NoeudCaseAbstrait pere) {
-		super(pere);
+	public NoeudCaseMin(NoeudCaseAbstrait pere, Case coup) {
+		super(pere, coup);
 	}
 
 	@Override
@@ -23,8 +25,8 @@ public class NoeudCaseMin extends NoeudCaseAbstrait{
 	}
 
 	@Override
-	public NoeudCaseAbstrait ajouterFils() {
-		NoeudCaseAbstrait n = new NoeudCaseMax(this);
+	public NoeudCaseAbstrait ajouterFils(Case coup) {
+		NoeudCaseAbstrait n = new NoeudCaseMax(this, coup);
 		this.fils.add(n);
 		return n;
 	}

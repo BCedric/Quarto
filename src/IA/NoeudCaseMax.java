@@ -7,8 +7,8 @@ import Jeu.Case;
 
 public class NoeudCaseMax extends NoeudCaseAbstrait{
 
-	public NoeudCaseMax(NoeudCaseAbstrait pere) {
-		super(pere);
+	public NoeudCaseMax(NoeudCaseAbstrait pere, Case coup) {
+		super(pere, coup);
 	}
 
 	@Override
@@ -27,8 +27,8 @@ public class NoeudCaseMax extends NoeudCaseAbstrait{
 	}
 	
 	@Override
-	public NoeudCaseAbstrait ajouterFils() {
-		NoeudCaseAbstrait n = new NoeudCaseMin(this);
+	public NoeudCaseAbstrait ajouterFils(Case coup) {
+		NoeudCaseAbstrait n = new NoeudCaseMin(this, coup);
 		this.fils.add(n);
 		return n;
 	}

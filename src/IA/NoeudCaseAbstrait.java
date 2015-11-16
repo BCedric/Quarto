@@ -6,19 +6,20 @@ import Jeu.Case;
 import Jeu.CaseOccupeeException;
 import Jeu.Jeu;
 
-public abstract class NoeudCaseAbstrait {
+public abstract class NoeudCaseAbstrait extends NoeudAbstrait{
 	
-	protected int valeur;
 	protected ArrayList<NoeudCaseAbstrait> fils;
-	protected NoeudCaseAbstrait pere;
+	protected Case coup;
 
-	public NoeudCaseAbstrait( NoeudCaseAbstrait pere){
-		this.pere=pere;
+	
+	public NoeudCaseAbstrait( NoeudAbstrait pere, Case coup){
+		super(pere);
+		this.coup = coup;
 		this.fils=new ArrayList<NoeudCaseAbstrait>();
 	}
 	
 	public abstract void calculValeurNoeud();
-	public abstract NoeudCaseAbstrait ajouterFils();
+	public abstract NoeudCaseAbstrait ajouterFils(Case coup);
 	
 	public void calculIA(Jeu j, ArrayList<Case> coups, int prof){
 		if(prof == 0 || j.isFinPartie() ){
@@ -26,7 +27,12 @@ public abstract class NoeudCaseAbstrait {
 		} else {
 			for(Case c:coups){
 				j.getActif().choisirCaseAction(c);
-				this.ajouterFils().calculIA(j,this.getCoups(j), prof-1);
+				NoeudCaseAbstrait n =this.ajouterFils(c);
+				
+				
+				n.calculIA(j,n.getCoups(j), prof-1);
+				this.calculValeurNoeud();
+				
 				this.calculValeurNoeud();
 				this.annulerCoup(j, c);
 			}
@@ -49,19 +55,13 @@ public abstract class NoeudCaseAbstrait {
 		return coups;
 	}
 	
+	
+	public ArrayList<NoeudCaseAbstrait> getFils() {
+		return fils;
+	}
+	
 	public boolean estFeuille(){
 		return this.fils.isEmpty();
 	}
 	
-	public int getValeur() {
-		return valeur;
-	}
-
-	public ArrayList<NoeudCaseAbstrait> getFils() {
-		return fils;
-	}
-
-	public NoeudCaseAbstrait getPere() {
-		return pere;
-	}	
 }
