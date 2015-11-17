@@ -6,11 +6,13 @@ public abstract class NoeudAbstrait {
 	
 	protected int valeur;
 	protected NoeudAbstrait pere;
+	protected ArrayList<NoeudAbstrait> fils;
 	
 	
 	
 	public NoeudAbstrait(NoeudAbstrait pere){
 		this.pere = pere;		
+		this.fils =new ArrayList<NoeudAbstrait>();
 	}
 	
 	
@@ -24,4 +26,8 @@ public abstract class NoeudAbstrait {
 	}
 	
 	
+	
+	public ArrayList<NoeudAbstrait> getFils() {
+		return fils;
+	}
 }
