@@ -4,10 +4,11 @@ import java.util.ArrayList;
 
 import Jeu.Jeu;
 import Jeu.Case;
+import Jeu.Piece;
 
 public class NoeudCaseMax extends NoeudCaseAbstrait{
 
-	public NoeudCaseMax(NoeudCaseAbstrait pere, Case coup) {
+	public NoeudCaseMax(NoeudAbstrait pere, Piece coup) {
 		super(pere, coup);
 	}
 
@@ -17,7 +18,7 @@ public class NoeudCaseMax extends NoeudCaseAbstrait{
 			//TODO evaluation
 		} else {
 			int val = this.fils.get(0).getValeur();
-			for(NoeudCaseAbstrait n:this.fils){
+			for(NoeudAbstrait n:this.fils){
 				if(val < n.getValeur()){
 					val = n.getValeur();
 				}
@@ -27,8 +28,8 @@ public class NoeudCaseMax extends NoeudCaseAbstrait{
 	}
 	
 	@Override
-	public NoeudCaseAbstrait ajouterFils(Case coup) {
-		NoeudCaseAbstrait n = new NoeudCaseMin(this, coup);
+	public NoeudPieceAbstrait ajouterFils(Case coup) {
+		NoeudPieceAbstrait n = new NoeudPieceMax(this, coup);
 		this.fils.add(n);
 		return n;
 	}

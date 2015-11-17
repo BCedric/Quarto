@@ -5,29 +5,39 @@ import java.util.ArrayList;
 import Jeu.Case;
 import Jeu.CaseOccupeeException;
 import Jeu.Jeu;
+import Jeu.Piece;
 
 public abstract class NoeudCaseAbstrait extends NoeudAbstrait{
 	
-	protected ArrayList<NoeudCaseAbstrait> fils;
-	protected Case coup;
+	
+	protected Piece coup;
 
 	
-	public NoeudCaseAbstrait( NoeudAbstrait pere, Case coup){
+	public NoeudCaseAbstrait( NoeudAbstrait pere, Piece coup){
 		super(pere);
 		this.coup = coup;
-		this.fils=new ArrayList<NoeudCaseAbstrait>();
 	}
 	
 	public abstract void calculValeurNoeud();
-	public abstract NoeudCaseAbstrait ajouterFils(Case coup);
+	public abstract NoeudPieceAbstrait ajouterFils(Case c);
+	
+	
+	public ArrayList<Case> getCoups(Jeu j){
+		ArrayList<Case> coups = new ArrayList<Case>();
+		for(Case c:j.getPlateau().getCases()){
+			if(c.estVide()) coups.add(c);
+		}
+		return coups;
+	}
 	
 	public void calculIA(Jeu j, ArrayList<Case> coups, int prof){
+		
 		if(prof == 0 || j.isFinPartie() ){
 			this.calculValeurNoeud();
 		} else {
 			for(Case c:coups){
 				j.getActif().choisirCaseAction(c);
-				NoeudCaseAbstrait n =this.ajouterFils(c);
+				NoeudPieceAbstrait n =this.ajouterFils(c);
 				
 				
 				n.calculIA(j,n.getCoups(j), prof-1);
@@ -39,7 +49,7 @@ public abstract class NoeudCaseAbstrait extends NoeudAbstrait{
 		}
 	}
 	
-	public void annulerCoup(Jeu j, Case c){
+	public static void annulerCoup(Jeu j, Case c){
 		j.changerActif();
 		j.getActif().setMain(c.getPiece());
 		c.setPiece(null);
@@ -47,18 +57,10 @@ public abstract class NoeudCaseAbstrait extends NoeudAbstrait{
 		if(j.isFinPartie()) j.setFinPartie(false);
 	}
 	
-	public ArrayList<Case> getCoups(Jeu j){
-		ArrayList<Case> coups = new ArrayList<Case>();
-		for(Case c:j.getPlateau().getCases()){
-			if(c.estVide()) coups.add(c);
-		}
-		return coups;
-	}
 	
 	
-	public ArrayList<NoeudCaseAbstrait> getFils() {
-		return fils;
-	}
+	
+	
 	
 	public boolean estFeuille(){
 		return this.fils.isEmpty();

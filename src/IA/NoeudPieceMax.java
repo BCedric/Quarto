@@ -1,10 +1,11 @@
 package IA;
 
+import Jeu.Case;
 import Jeu.Piece;
 
 public class NoeudPieceMax extends NoeudPieceAbstrait{
 
-	public NoeudPieceMax(NoeudAbstrait pere, Piece coup) {
+	public NoeudPieceMax(NoeudAbstrait pere, Case coup) {
 		super(pere, coup);
 		
 	}
@@ -15,7 +16,7 @@ public class NoeudPieceMax extends NoeudPieceAbstrait{
 			//TODO evaluation
 		} else {
 			int val = this.fils.get(0).getValeur();
-			for(NoeudPieceAbstrait n:this.fils){
+			for(NoeudAbstrait n:this.fils){
 				if(val < n.getValeur()){
 					val = n.getValeur();
 				}
@@ -25,10 +26,11 @@ public class NoeudPieceMax extends NoeudPieceAbstrait{
 	}
 
 	@Override
-	public NoeudPieceAbstrait ajouterFils(Piece coup) {
-		NoeudPieceAbstrait n = new NoeudPieceMin(this, coup);
+	public NoeudCaseAbstrait ajouterFils(Piece coup) {
+		NoeudCaseAbstrait n = new NoeudCaseMin(this, coup);
 		this.fils.add(n);
 		return n;
 	}
+
 
 }

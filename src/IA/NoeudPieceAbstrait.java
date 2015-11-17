@@ -8,18 +8,21 @@ import Jeu.Piece;
 
 public abstract class NoeudPieceAbstrait extends NoeudAbstrait{
 
-	protected ArrayList<NoeudPieceAbstrait> fils;
-	protected Piece coup;
+	protected Case coup;
 
 	
-	public NoeudPieceAbstrait(NoeudAbstrait pere, Piece coup){
+	public NoeudPieceAbstrait(NoeudAbstrait pere, Case coup){
 		super(pere);
 		this.coup = coup;
-		this.fils=new ArrayList<NoeudPieceAbstrait>();
 	}
 	
 	public abstract void calculValeurNoeud();
-	public abstract NoeudPieceAbstrait ajouterFils(Piece coup);
+	public abstract NoeudCaseAbstrait ajouterFils(Piece coup);
+	
+	public ArrayList<Piece> getCoups(Jeu j){
+		ArrayList<Piece> coups = (ArrayList<Piece>) j.getPieces().clone();
+		return coups;
+	}
 	
 	public void calculIA(Jeu j, ArrayList<Piece> coups, int prof){
 		if(prof == 0 || j.isFinPartie() ){
@@ -27,7 +30,7 @@ public abstract class NoeudPieceAbstrait extends NoeudAbstrait{
 		} else {
 			for(Piece p:coups){
 				j.getNonActif().choisirPieceAction(p);
-				NoeudPieceAbstrait n =this.ajouterFils(p);
+				NoeudCaseAbstrait n =this.ajouterFils(p);
 				
 				
 				n.calculIA(j,n.getCoups(j), prof-1);
@@ -43,21 +46,14 @@ public abstract class NoeudPieceAbstrait extends NoeudAbstrait{
 		j.getActif().setMain(null);
 	}
 	
-	public ArrayList<Piece> getCoups(Jeu j){
-		ArrayList<Piece> coups = (ArrayList<Piece>) j.getPieces().clone();
-		return coups;
-	}
 	
 	
-	public ArrayList<NoeudPieceAbstrait> getFils() {
-		return fils;
-	}
 	
 	public boolean estFeuille(){
 		return this.fils.isEmpty();
 	}
 
-	public Piece getCoup() {
+	public Case getCoup() {
 		return coup;
 	}
 }
