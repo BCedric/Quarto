@@ -12,7 +12,7 @@ public class NoeudPieceMin extends NoeudPieceAbstrait {
 	@Override
 	public void calculValeurNoeud() {
 		if(this.estFeuille()){
-			//TODO evaluation
+			this.valeur = this.ia.evaluation(j);
 		} else {
 			int val = this.fils.get(0).getValeur();
 			for(NoeudAbstrait n:this.fils){
