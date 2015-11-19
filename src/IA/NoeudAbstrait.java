@@ -7,6 +7,7 @@ public abstract class NoeudAbstrait {
 	protected int valeur;
 	protected NoeudAbstrait pere;
 	protected ArrayList<NoeudAbstrait> fils;
+	protected IA ia;
 	
 	
 	
