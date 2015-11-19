@@ -29,8 +29,13 @@ public class SelectionPieceAction implements MouseListener {
 			
 		}
 		if(j.getIa() != null){
-			j.getIa().jouerPiece();
-			j.getIa().choisirPiece();
+			if(j.getPieces().size() == 16){
+				j.getIa().choisirPiece();
+			} else{
+				j.getIa().jouerPieceChoisirPiece();
+			}
+			
+			
 		}
 	}
 

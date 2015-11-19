@@ -47,3 +47,4 @@ bin/*
 
 src/Jeu/CaseOccupeeException.java
 bin/Interface/FenetrePrincipale.class
+/bin/
