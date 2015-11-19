@@ -14,7 +14,7 @@ public class Main {
 	 */
 	public static void main(String[] args){
 		
-		 Jeu j = new Jeu(true);
+		 Jeu j = new Jeu(true, true);
 		 j.jouer();
 //		 Piece p = j.choixPiece(1);
 //		 j.getNonActif().choisirPieceAction(p);

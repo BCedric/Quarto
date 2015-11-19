@@ -9,6 +9,8 @@ import CaracteristiquesPiece.Couleur;
 import CaracteristiquesPiece.Forme;
 import CaracteristiquesPiece.Interieur;
 import CaracteristiquesPiece.Taille;
+import IA.IA;
+import IA.IA1;
 import Interface.FenetreJeu;
 
 public class Jeu {
@@ -16,12 +18,15 @@ public class Jeu {
 	private ArrayList<Piece> pieces;
 	private Joueur j1;
 	private Joueur j2;
+	private IA ia;
 	private Joueur actif;
 	private FenetreJeu vue;
 	private boolean finPartie;
 	
-	public Jeu(boolean b){
+	public Jeu(boolean b, boolean ia){
 		this.build();
+		if(ia) this.ia = new IA1(this, this.j1);
+		else this.ia = null;
 		if(b) this.vue = new FenetreJeu("img/texture.jpg", this);
 	}
 	
@@ -163,6 +168,10 @@ public class Jeu {
 
 	public void setFinPartie(boolean finPartie) {
 		this.finPartie = finPartie;
+	}
+
+	public IA getIa() {
+		return ia;
 	}
 
 }
