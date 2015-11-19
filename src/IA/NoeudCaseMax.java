@@ -8,14 +8,14 @@ import Jeu.Piece;
 
 public class NoeudCaseMax extends NoeudCaseAbstrait{
 
-	public NoeudCaseMax(NoeudAbstrait pere, Piece coup) {
-		super(pere, coup);
+	public NoeudCaseMax(NoeudAbstrait pere, Piece coup, IA ia) {
+		super(pere, coup, ia);
 	}
 
 	@Override
 	public void calculValeurNoeud() {
 		if(this.estFeuille()){
-			//TODO evaluation
+			this.valeur = ia.evaluation(j);
 		} else {
 			int val = this.fils.get(0).getValeur();
 			for(NoeudAbstrait n:this.fils){
@@ -29,7 +29,7 @@ public class NoeudCaseMax extends NoeudCaseAbstrait{
 	
 	@Override
 	public NoeudPieceAbstrait ajouterFils(Case coup) {
-		NoeudPieceAbstrait n = new NoeudPieceMax(this, coup);
+		NoeudPieceAbstrait n = new NoeudPieceMax(this, coup, this.ia);
 		this.fils.add(n);
 		return n;
 	}

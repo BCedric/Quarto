@@ -5,15 +5,15 @@ import Jeu.Piece;
 
 public class NoeudPieceMax extends NoeudPieceAbstrait{
 
-	public NoeudPieceMax(NoeudAbstrait pere, Case coup) {
-		super(pere, coup);
+	public NoeudPieceMax(NoeudAbstrait pere, Case coup, IA ia) {
+		super(pere, coup, ia);
 		
 	}
 
 	@Override
 	public void calculValeurNoeud() {
 		if(this.estFeuille()){
-			//TODO evaluation
+			this.valeur = this.ia.evaluation(j);
 		} else {
 			int val = this.fils.get(0).getValeur();
 			for(NoeudAbstrait n:this.fils){
@@ -27,7 +27,7 @@ public class NoeudPieceMax extends NoeudPieceAbstrait{
 
 	@Override
 	public NoeudCaseAbstrait ajouterFils(Piece coup) {
-		NoeudCaseAbstrait n = new NoeudCaseMin(this, coup);
+		NoeudCaseAbstrait n = new NoeudCaseMin(this, coup, this.ia);
 		this.fils.add(n);
 		return n;
 	}

@@ -5,8 +5,8 @@ import Jeu.Piece;
 
 public class NoeudPieceMin extends NoeudPieceAbstrait {
 
-	public NoeudPieceMin(NoeudAbstrait pere, Case coup) {
-		super(pere, coup);
+	public NoeudPieceMin(NoeudAbstrait pere, Case coup, IA ia) {
+		super(pere, coup, ia);
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public class NoeudPieceMin extends NoeudPieceAbstrait {
 
 	@Override
 	public NoeudCaseAbstrait ajouterFils(Piece coup) {
-		NoeudCaseAbstrait n = new NoeudCaseMax(this, coup);
+		NoeudCaseAbstrait n = new NoeudCaseMax(this, coup, this.ia);
 		this.fils.add(n);
 		return n;
 	}

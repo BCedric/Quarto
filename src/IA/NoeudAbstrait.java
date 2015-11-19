@@ -10,9 +10,10 @@ public abstract class NoeudAbstrait {
 	
 	
 	
-	public NoeudAbstrait(NoeudAbstrait pere){
+	public NoeudAbstrait(NoeudAbstrait pere, IA ia){
 		this.pere = pere;		
 		this.fils =new ArrayList<NoeudAbstrait>();
+		this.ia = ia;
 	}
 	
 	

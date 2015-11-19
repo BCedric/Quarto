@@ -11,8 +11,8 @@ public abstract class NoeudPieceAbstrait extends NoeudAbstrait{
 	protected Case coup;
 
 	
-	public NoeudPieceAbstrait(NoeudAbstrait pere, Case coup){
-		super(pere);
+	public NoeudPieceAbstrait(NoeudAbstrait pere, Case coup, IA ia){
+		super(pere, ia);
 		this.coup = coup;
 	}
 	

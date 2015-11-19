@@ -13,8 +13,8 @@ public abstract class NoeudCaseAbstrait extends NoeudAbstrait{
 	protected Piece coup;
 
 	
-	public NoeudCaseAbstrait( NoeudAbstrait pere, Piece coup){
-		super(pere);
+	public NoeudCaseAbstrait( NoeudAbstrait pere, Piece coup, IA ia){
+		super(pere, ia);
 		this.coup = coup;
 	}
 	
