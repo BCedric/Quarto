@@ -16,7 +16,7 @@ public abstract class NoeudPieceAbstrait extends NoeudAbstrait{
 		this.coup = coup;
 	}
 	
-	public abstract void calculValeurNoeud();
+	public abstract void calculValeurNoeud(Jeu j);
 	public abstract NoeudCaseAbstrait ajouterFils(Piece coup);
 	
 	public ArrayList<Piece> getCoups(Jeu j){
@@ -26,7 +26,7 @@ public abstract class NoeudPieceAbstrait extends NoeudAbstrait{
 	
 	public void calculIA(Jeu j, ArrayList<Piece> coups, int prof){
 		if(prof == 0 || j.isFinPartie() ){
-			this.calculValeurNoeud();
+			this.calculValeurNoeud(j);
 		} else {
 			for(Piece p:coups){
 				j.getNonActif().choisirPieceAction(p);
@@ -35,7 +35,7 @@ public abstract class NoeudPieceAbstrait extends NoeudAbstrait{
 				
 				n.calculIA(j,n.getCoups(j), prof-1);
 				
-				this.calculValeurNoeud();
+				this.calculValeurNoeud(j);
 				this.annulerCoup(j);
 			}
 		}

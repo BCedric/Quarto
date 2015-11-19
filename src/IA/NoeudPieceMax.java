@@ -1,6 +1,7 @@
 package IA;
 
 import Jeu.Case;
+import Jeu.Jeu;
 import Jeu.Piece;
 
 public class NoeudPieceMax extends NoeudPieceAbstrait{
@@ -11,7 +12,7 @@ public class NoeudPieceMax extends NoeudPieceAbstrait{
 	}
 
 	@Override
-	public void calculValeurNoeud() {
+	public void calculValeurNoeud(Jeu j) {
 		if(this.estFeuille()){
 			this.valeur = this.ia.evaluation(j);
 		} else {

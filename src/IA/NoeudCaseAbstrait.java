@@ -18,7 +18,7 @@ public abstract class NoeudCaseAbstrait extends NoeudAbstrait{
 		this.coup = coup;
 	}
 	
-	public abstract void calculValeurNoeud();
+	public abstract void calculValeurNoeud(Jeu j);
 	public abstract NoeudPieceAbstrait ajouterFils(Case c);
 	
 	
@@ -33,7 +33,7 @@ public abstract class NoeudCaseAbstrait extends NoeudAbstrait{
 	public void calculIA(Jeu j, ArrayList<Case> coups, int prof){
 		
 		if(prof == 0 || j.isFinPartie() ){
-			this.calculValeurNoeud();
+			this.calculValeurNoeud(j);
 		} else {
 			for(Case c:coups){
 				j.getActif().choisirCaseAction(c);
@@ -41,15 +41,14 @@ public abstract class NoeudCaseAbstrait extends NoeudAbstrait{
 				
 				
 				n.calculIA(j,n.getCoups(j), prof-1);
-				this.calculValeurNoeud();
+				this.calculValeurNoeud(j);
 				
-				this.calculValeurNoeud();
 				this.annulerCoup(j, c);
 			}
 		}
 	}
 	
-	public static void annulerCoup(Jeu j, Case c){
+	public void annulerCoup(Jeu j, Case c){
 		j.changerActif();
 		j.getActif().setMain(c.getPiece());
 		c.setPiece(null);
@@ -64,6 +63,10 @@ public abstract class NoeudCaseAbstrait extends NoeudAbstrait{
 	
 	public boolean estFeuille(){
 		return this.fils.isEmpty();
+	}
+	
+	public Piece getCoup() {
+		return this.coup;
 	}
 	
 }

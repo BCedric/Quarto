@@ -13,7 +13,7 @@ public class NoeudCaseMax extends NoeudCaseAbstrait{
 	}
 
 	@Override
-	public void calculValeurNoeud() {
+	public void calculValeurNoeud(Jeu j) {
 		if(this.estFeuille()){
 			this.valeur = ia.evaluation(j);
 		} else {
