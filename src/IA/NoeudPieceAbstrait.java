@@ -44,6 +44,8 @@ public abstract class NoeudPieceAbstrait extends NoeudAbstrait{
 	public void annulerCoup(Jeu j){
 		j.getPieces().add(j.getActif().getMain());
 		j.getActif().setMain(null);
+		j.getActif().setEtatCourant(j.getActif().getAttente());
+		j.getNonActif().setEtatCourant(j.getNonActif().getChoixPiece());
 	}
 	
 	
