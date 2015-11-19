@@ -27,6 +27,15 @@ public class PiecesDispo extends JPanel{
 		this.setPreferredSize(new Dimension(640, 300));
 	}
 	
+	public PieceIHM getPiece(int i){
+		for(Component c:this.getComponents()){
+			if(c instanceof PieceIHM && ((PieceIHM) c).getId()==i){
+				return (PieceIHM) c;
+			}
+		}
+		return null;
+	}
+	
 	public void retirerPiece(PieceIHM p){
 		for(Component c:this.getComponents()){
 			if(c instanceof PieceIHM && c==p){
