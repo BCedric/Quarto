@@ -27,7 +27,11 @@ public class SelectionPieceAction implements MouseListener {
 			}
 			j.getNonActif().choisirPieceAction(piece);
 			
-		}	
+		}
+		if(j.getIa() != null){
+			j.getIa().jouerPiece();
+			j.getIa().choisirPiece();
+		}
 	}
 
 	public void mouseEntered(MouseEvent arg0) {
