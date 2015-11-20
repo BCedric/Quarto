@@ -29,13 +29,15 @@ public class SelectionPieceAction implements MouseListener {
 			
 		}
 		if(j.getIa() != null){
+			long tempsDebut = System.currentTimeMillis();
 			if(j.getPieces().size() == 16){
 				j.getIa().choisirPiece();
 			} else{
 				j.getIa().jouerPieceChoisirPiece();
 			}
-			
-			
+			long tempsFin = System.currentTimeMillis();
+			float seconds = (tempsFin - tempsDebut) / 1000F;
+			System.out.println("Opération effectuée en: "+ Float.toString(seconds) + " secondes.");
 		}
 	}
 

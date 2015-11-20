@@ -14,10 +14,12 @@ public abstract class NoeudAbstrait {
 	protected IA ia;
 	protected Piece coupPiece;
 	protected Case coupCase;
+	public static int nb =0;
 	
 	
 	
 	public NoeudAbstrait(NoeudAbstrait pere, IA ia, Case c, Piece p){
+		this.nb++;
 		this.pere = pere;		
 		this.fils =new ArrayList<NoeudAbstrait>();
 		this.ia = ia;

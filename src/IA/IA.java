@@ -13,7 +13,7 @@ public abstract class IA {
 
 	protected Joueur j;
 	protected Jeu jeu;
-	protected int profondeur = 2;
+	protected int profondeur = 4;
 	
 	public IA(Jeu jeu, Joueur j){
 		this.jeu =jeu;
@@ -24,6 +24,7 @@ public abstract class IA {
 	
 	public void jouerPieceChoisirPiece(){
 		NoeudMax racine = new NoeudMax(null,this, null, null);
+		racine.nb =0;
 		ArrayList<Case> coups = new ArrayList<Case>();
 		for(Case c:this.jeu.getPlateau().getCases()){
 			if(c.estVide()) coups.add(c);
@@ -48,6 +49,7 @@ public abstract class IA {
 					this.j.choisirPieceAction(p);
 					jeu.getVue().choisirPiece(jeu.getVue().getPiecesDispo().getPiece(p.getId()));
 				}
+				System.out.println(n.nb);
 				break;
 			}
 		}
