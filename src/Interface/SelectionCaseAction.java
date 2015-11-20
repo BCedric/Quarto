@@ -21,22 +21,25 @@ public class SelectionCaseAction implements MouseListener{
 	public void mouseClicked(MouseEvent arg0) {
 		CaseIHM caseihm = (CaseIHM) arg0.getSource();
 		Jeu j =caseihm.getJ();
-		Case c = j.choixCase(caseihm.getId());
-		fenetre.jouerPiece(caseihm);
-		
-		if(c != null){
-			if(j.getActif().choisirCaseAction(c)){
-				for(Ligne l:c.getLignes()){
-					if(l.finPartie()){
-						fenetre.finPartie();
-						JFrame fin = new FenetreFinDePartie(j,l);
-						fin.setVisible(true);
-						break;
+		if(j.getJ1().getEtatCourant() == j.getJ1().getJouerPiece() || j.getJ2().getEtatCourant() == j.getJ2().getJouerPiece()){
+			
+			Case c = j.choixCase(caseihm.getId());
+			fenetre.jouerPiece(caseihm);
+			
+			if(c != null){
+				if(j.getActif().choisirCaseAction(c)){
+					for(Ligne l:c.getLignes()){
+						if(l.finPartie()){
+							fenetre.finPartie();
+							JFrame fin = new FenetreFinDePartie(j,l);
+							fin.setVisible(true);
+							break;
+						}
 					}
+					
 				}
-				
 			}
-		}	
+		}
 	}
 
 	public void mouseEntered(MouseEvent arg0) {
