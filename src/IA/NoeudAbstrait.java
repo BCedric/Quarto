@@ -45,13 +45,13 @@ public abstract class NoeudAbstrait {
 							NoeudAbstrait n =this.ajouterFils(c, p);
 							n.calculIA(j,n.getCoupsCases(j), n.getCoupsPieces(j), prof-1);
 							this.calculValeurNoeud(j);
-							elaguer = this.elagage();
+							elaguer = n.elagage();
 							this.annulerCoupPiece(j);
 						} else {
 							NoeudAbstrait n =this.ajouterFils(c, p);
 							n.calculIA(j,n.getCoupsCases(j), n.getCoupsPieces(j), prof-1);
 							this.calculValeurNoeud(j);
-							elaguer = this.elagage();
+							elaguer = n.elagage();
 						}
 						this.annulerCoupCase(j, c);
 						if(elaguer){
@@ -63,7 +63,7 @@ public abstract class NoeudAbstrait {
 					NoeudAbstrait n =this.ajouterFils(null, p);
 					n.calculIA(j,n.getCoupsCases(j), n.getCoupsPieces(j), prof-1);
 					this.calculValeurNoeud(j);
-					elaguer = this.elagage();
+					elaguer = n.elagage();
 					this.annulerCoupPiece(j);
 				}
 				if(elaguer){

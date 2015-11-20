@@ -33,9 +33,14 @@ public class NoeudMin extends NoeudAbstrait{
 	}
 	
 	public boolean elagage(){
-		if(this.pere != null && this.valeur<this.pere.getValeur()){
-			this.pere.getFils().remove(this);
-			return true;
+		if(this.pere != null && !this.estFeuille()){
+			for(NoeudAbstrait n:this.fils){
+				if(n.valeur < this.pere.getValeur()){
+					this.pere.getFils().remove(this);
+					return true;
+				}
+			}
+				
 		}
 		return false;
 	}
