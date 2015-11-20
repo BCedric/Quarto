@@ -27,8 +27,10 @@ public abstract class NoeudAbstrait {
 	
 	public abstract void calculValeurNoeud(Jeu j);
 	public abstract NoeudAbstrait ajouterFils(Case c, Piece p);
+	public abstract boolean elagage();
 	
 	public void calculIA(Jeu j, ArrayList<Case> coupsCase, ArrayList<Piece> coupsPiece, int prof){
+		boolean elaguer = false;
 		if(prof == 0 || j.isFinPartie() ){
 			this.calculValeurNoeud(j);
 		} else {
@@ -41,21 +43,30 @@ public abstract class NoeudAbstrait {
 							NoeudAbstrait n =this.ajouterFils(c, p);
 							n.calculIA(j,n.getCoupsCases(j), n.getCoupsPieces(j), prof-1);
 							this.calculValeurNoeud(j);
+							elaguer = this.elagage();
 							this.annulerCoupPiece(j);
 						} else {
 							NoeudAbstrait n =this.ajouterFils(c, p);
 							n.calculIA(j,n.getCoupsCases(j), n.getCoupsPieces(j), prof-1);
 							this.calculValeurNoeud(j);
+							elaguer = this.elagage();
 						}
 						this.annulerCoupCase(j, c);
+						if(elaguer){
+							break;
+						}
 					}
 				} else{
 					j.getNonActif().choisirPieceAction(p);
 					NoeudAbstrait n =this.ajouterFils(null, p);
 					n.calculIA(j,n.getCoupsCases(j), n.getCoupsPieces(j), prof-1);
 					this.calculValeurNoeud(j);
+					elaguer = this.elagage();
 					this.annulerCoupPiece(j);
-				}				
+				}
+				if(elaguer){
+					break;
+				}
 			}
 		}
 	}

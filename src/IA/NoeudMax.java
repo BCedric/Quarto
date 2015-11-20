@@ -31,5 +31,12 @@ public class NoeudMax extends NoeudAbstrait {
 			this.valeur = val;
 		}
 	}
-
+	
+	public boolean elagage(){
+		if(this.pere != null && this.valeur > this.pere.getValeur()){
+			this.pere.getFils().remove(this);
+			return true;
+		}
+		return false;
+	}
 }
