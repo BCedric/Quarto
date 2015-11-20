@@ -11,6 +11,7 @@ import CaracteristiquesPiece.Interieur;
 import CaracteristiquesPiece.Taille;
 import IA.IA;
 import IA.IA1;
+import IA.IA2;
 import Interface.FenetreJeu;
 
 public class Jeu {
@@ -23,10 +24,12 @@ public class Jeu {
 	private FenetreJeu vue;
 	private boolean finPartie;
 	
-	public Jeu(boolean b, boolean ia){
+	public Jeu(boolean b, String ia){
 		this.build();
-		if(ia) this.ia = new IA1(this, this.j1);
-		else this.ia = null;
+		
+		if(ia.equals("1")) this.ia = new IA1(this, this.j1);
+		if(ia.equals("2")) this.ia = new IA2(this, this.j1);
+		if(ia.equals("0")) this.ia = null;
 		if(b) this.vue = new FenetreJeu("img/texture.jpg", this);
 	}
 	

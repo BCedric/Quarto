@@ -14,19 +14,13 @@ public class Main {
 	 */
 	public static void main(String[] args){
 		
-		 Jeu j = new Jeu(true, true);
+//		args[0] = 
+//		0 : pas d'IA, 
+//		1 : IA1,
+//		2 : IA2
+		 Jeu j = new Jeu(true, args[0]);
 		 j.jouer();
-//		 Piece p = j.choixPiece(1);
-//		 j.getNonActif().choisirPieceAction(p);
-//		 j.getActif().choisirCaseAction(j.choixCase(1));
-//		 Case ca = null;
-//		 for(Case c : j.getPlateau().getCases()){
-//			 if(c.getId() == 1){
-//				 ca =c;
-//				 break;
-//			 }
-//		 }
-//		 new NoeudMax(null).annulerCoup(j, ca);
+
 	}
 
 }
