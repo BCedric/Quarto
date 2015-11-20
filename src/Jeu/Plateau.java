@@ -40,22 +40,34 @@ public class Plateau {
 		this.addLigne(c4,c7,c10,c13);
 	}
 	
+	/**
+	 * Ajout d'une case sur le plateau
+	 * @param n identifiant de la case
+	 * @return
+	 */
 	private Case nouvelleCase(int n){
 		Case c = new Case(n);
 		this.cases.add(c);
 		return c;
 	}
 	
+	/**
+	 * ajout d'une ligne sur le plateau
+	 * @param c1 Case à ajouter a la ligne
+	 * @param c2 Case à ajouter a la ligne
+	 * @param c3 Case à ajouter a la ligne
+	 * @param c4 Case à ajouter a la ligne
+	 */
 	private void addLigne(Case c1, Case c2, Case c3, Case c4){
 		Case [] l ={c1,c2,c3,c4}; 
-		try {
 			this.lignes.add(new Ligne(l));
-		} catch (mauvaisNbCasesException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 	
+	/**
+	 * Renvoie la case d'identifiant n
+	 * @param n identifiant de la case
+	 * @return la case recherchee
+	 */
 	public Case choixCase(int n){
 		for(Case c:this.cases){
 			if(c.getId() == n){

@@ -6,16 +6,18 @@ public class Ligne {
 	private ArrayList<Case> cases;
 	
 	
-	public Ligne(Case[] cases) throws mauvaisNbCasesException{
+	public Ligne(Case[] cases) {
 		this.cases=new ArrayList<Case>();
 		for(Case c:cases){
 			this.cases.add(c);
 			c.ajouterLigne(this);
-		} if(this.cases.size() != 4){
-			throw new mauvaisNbCasesException();
 		}
 	}
 	
+	/**
+	 * Teste si la ligne est complete
+	 * @return true si la ligne est complete, false sinon
+	 */
 	public boolean estComplète(){
 		for(Case c:this.cases){
 			if(c.estVide()){
@@ -25,6 +27,10 @@ public class Ligne {
 		return true;
 	}
 	
+	/**
+	 * Teste si la partie est terminée
+	 * @return true si la partie est terminée
+	 */
 	public boolean finPartie(){
 		if(this.estComplète()){
 			if(this.caracteristiquesCommunes().isEmpty()){
@@ -37,6 +43,10 @@ public class Ligne {
 		}
 	}
 	
+	/**
+	 * Fonction renvoyant la liste des caractéristiques communes des pieces présentes sur la ligne 
+	 * @return les caractéristique communes aux pieces 
+	 */
 	public ArrayList<String> caracteristiquesCommunes(){
 		ArrayList<String> caracCommunesGlobales = new ArrayList<String>();
 		String s;

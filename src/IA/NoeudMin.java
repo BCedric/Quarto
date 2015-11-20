@@ -32,6 +32,7 @@ public class NoeudMin extends NoeudAbstrait{
 		}
 	}
 	
+	@Override
 	public boolean elagage(){
 		if(this.pere != null && !this.estFeuille()){
 			for(NoeudAbstrait n:this.fils){

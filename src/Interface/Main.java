@@ -3,7 +3,6 @@ package Interface;
 import javax.swing.JFrame;
 
 import Jeu.Case;
-import Jeu.CaseOccupeeException;
 import Jeu.Jeu;
 import Jeu.Piece;
 

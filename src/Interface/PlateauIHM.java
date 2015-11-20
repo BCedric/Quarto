@@ -30,6 +30,11 @@ public class PlateauIHM extends ConteneurBackground{
 		}
 	}
 	
+	/**
+	 * Fonction qui renvoie une case du plateau
+	 * @param i identifiant de la case
+	 * @return la case d'identifiant i
+	 */
 	public CaseIHM getCase(int i){
 		if(i<1 || i>16) return null;
 		for(Component c:this.getComponents()){

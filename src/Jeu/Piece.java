@@ -25,10 +25,11 @@ public class Piece {
 		this.id = id;
 	}
 	
-	public int getId() {
-		return id;
-	}
-
+	/**
+	 * Renvoie la liste des caracteristiques communes entre this et une autre piece 
+	 * @param p la piece a comparer avec this
+	 * @return la liste des caracteristiques communes
+	 */
 	public ArrayList<String> caracteristiquesCommunes(Piece p){
 		ArrayList<String> list = new ArrayList<String>();
 		if(this.couleur == p.getCouleur()){
@@ -46,6 +47,10 @@ public class Piece {
 		return list;
 	}
 	
+	public int getId() {
+		return id;
+	}
+	
 	public Couleur getCouleur() {
 		return couleur;
 	}
@@ -60,7 +65,5 @@ public class Piece {
 
 	public Forme getForme() {
 		return forme;
-	}
-
-		
+	}	
 }

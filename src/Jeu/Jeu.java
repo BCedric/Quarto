@@ -33,6 +33,9 @@ public class Jeu {
 		if(b) this.vue = new FenetreJeu("img/texture.jpg", this);
 	}
 	
+	/**
+	 * Construction du jeu
+	 */
 	private void build(){
 		this.plateau = new Plateau();
 		this.finPartie = false;
@@ -60,7 +63,9 @@ public class Jeu {
 		pieces.add(new Piece(Couleur.sombre, Taille.petit, Interieur.vide, Forme.rond, 16));
 	}
 	
-
+	/**
+	 * Lancement du jeu
+	 */
 	public void jouer(){
 		if(this.vue != null){
 			this.vue.jouer();
@@ -103,6 +108,12 @@ public class Jeu {
 		}
 	}
 	
+	/**
+	 * Placement d'une piece dans une case
+	 * @param p Piece a placer
+	 * @param c Case dans laquelle mettre la piece
+	 * @return renvoie true si la piece a bien ete placee dans la case
+	 */
 	public boolean placerPiece(Piece p, Case c){		
 		c.setPiece(p);
 		for(Ligne l : c.getLignes()){
@@ -112,16 +123,12 @@ public class Jeu {
 		}
 		return false;
 	}
-	public Plateau getPlateau() {
-		return plateau;
-	}
-
-	public FenetreJeu getVue() {
-		return vue;
-	}
-
 	
-	
+	/**
+	 * Renvoie la piece d'identifiant n
+	 * @param n identifiant de la piece
+	 * @return la piece 
+	 */
 	public Piece choixPiece(int n){
 		for(Piece p:this.pieces){
 			if(p.getId() == n){
@@ -131,12 +138,23 @@ public class Jeu {
 		return null;
 	}
 	
+	/**
+	 * Change de joueur actif
+	 */
 	public void changerActif(){
 		if(j1 != actif){
 			actif = j1;
 		} else {
 			actif = j2;
 		}
+	}
+	
+	public Plateau getPlateau() {
+		return plateau;
+	}
+
+	public FenetreJeu getVue() {
+		return vue;
 	}
 	
 	public Joueur getActif() {

@@ -27,6 +27,11 @@ public class PiecesDispo extends JPanel{
 		this.setPreferredSize(new Dimension(640, 300));
 	}
 	
+	/**
+	 * Renvoie de la piece d'identifiant i
+	 * @param i identifiant de la piece
+	 * @return 
+	 */
 	public PieceIHM getPiece(int i){
 		for(Component c:this.getComponents()){
 			if(c instanceof PieceIHM && ((PieceIHM) c).getId()==i){
@@ -36,6 +41,10 @@ public class PiecesDispo extends JPanel{
 		return null;
 	}
 	
+	/**
+	 * Fonction qui retire une piece du conteneur
+	 * @param p piece a retirer
+	 */
 	public void retirerPiece(PieceIHM p){
 		for(Component c:this.getComponents()){
 			if(c instanceof PieceIHM && c==p){

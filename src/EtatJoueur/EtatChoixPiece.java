@@ -13,7 +13,8 @@ public class EtatChoixPiece extends EtatJoueur{
 	public EtatChoixPiece(Joueur j) {
 		super(j);
 	}
-
+	
+	@Override
 	public void choisirPiece(Piece p){
 		Jeu jeu = this.j.getJeu();
 		jeu.getPieces().remove(p);

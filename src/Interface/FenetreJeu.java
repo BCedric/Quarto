@@ -48,10 +48,17 @@ public class FenetreJeu extends JFrame{
 		
 	}
 	
+	/**
+	 * Fonction affichant la fenetre
+	 */
 	public void jouer(){
 		this.setVisible(true);
 	}
 	
+	/**
+	 * Fonction permettant de jouer une piece
+	 * @param c case dans laquelle la piece doit etre jouee
+	 */
 	public void jouerPiece(CaseIHM c){
 		PieceIHM p=null;
 		if(this.zoneJ1.getJ() == this.j.getActif()){
@@ -62,6 +69,10 @@ public class FenetreJeu extends JFrame{
 		c.repaint();
 	}
 	
+	/**
+	 * Fonction qui enlève une piece de l'ensemble des piece et la pose la zone du joueur qui va ensuite la jouer
+	 * @param p piece a deplacer
+	 */
 	public void choisirPiece(PieceIHM p){
 		this.piecesDispo.retirerPiece(p);
 		if(this.zoneJ1.getJ() == this.j.getActif()){
@@ -69,6 +80,11 @@ public class FenetreJeu extends JFrame{
 		} else zoneJ2.insererPiece(p);
 	}
 	
+	/**
+	 * Renvoie la zone du joueur j
+	 * @param j le joueur
+	 * @return la zone du joueur j
+	 */
 	public ZoneJoueur getZone(Joueur j){
 		if(((ZoneJoueur) this.zoneJ1).getJ() == j) return this.zoneJ1;
 		else return this.zoneJ2;
@@ -90,6 +106,9 @@ public class FenetreJeu extends JFrame{
 		return piecesDispo;
 	}
 
+	/**
+	 * Fonction qui enlève les pieces du conteneur piecesDispo
+	 */
 	public void finPartie() {
 		JLabel text = new JLabel("Fin");
 		System.out.println("fin de partie");

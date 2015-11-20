@@ -26,12 +26,20 @@ public class ZoneJoueur extends JPanel{
 		this.setOpaque(false);
 	}
 	
+	/**
+	 * Insertion d'une piece dans la zone 
+	 * @param p piece a inserer
+	 */
 	public void insererPiece(PieceIHM p){
 		this.add(p);
 		p.setLocation(this.getWidth()/2-p.getWidth()/2, this.getHeight()/2-p.getHeight()/2);
 		this.repaint();
 	}
 	
+	/**
+	 * Suppression de la piece contenu dans la zone
+	 * @return la piece contenu dans la zone
+	 */
 	public PieceIHM retirerPiece(){
 		for(Component comp:this.getComponents()){
 			if(comp instanceof PieceIHM){

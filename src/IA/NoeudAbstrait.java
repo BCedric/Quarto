@@ -26,39 +26,82 @@ public abstract class NoeudAbstrait {
 		this.coupCase = c;
 		this.coupPiece = p;
 	}
-	
+	/**
+	 * Fonction permettant de calculer la valeur du noeud
+	 * @param j la situation du jeu en cours
+	 */
 	public abstract void calculValeurNoeud(Jeu j);
+	
+	/**
+	 * Ajout d'un fils 
+	 * @param c le coup à jouer pour arriver dans cette configuration
+	 * @param p la piece a donner pour arriver dans cette configuration
+	 * @return le noeud créé
+	 */
 	public abstract NoeudAbstrait ajouterFils(Case c, Piece p);
+	
+	/**
+	 * fonction supprimant les branches inutiles
+	 * @return true si la branche a été supprimée, false sinon
+	 */
 	public abstract boolean elagage();
 	
+	/**
+	 * Fonction qui créée l'arbre et choisi le coup à jouer
+	 * @param j la situation du jeu en cours
+	 * @param coupsCase les coups possibles
+	 * @param coupsPiece les pieces disponible à donner a l'adversaire
+	 * @param prof la profodeur de l'arbre
+	 */
 	public void calculIA(Jeu j, ArrayList<Case> coupsCase, ArrayList<Piece> coupsPiece, int prof){
 		boolean elaguer = false;
+		
+		//Si la on doit s'arreter ou si la partie est fini, on calcul la valeur du noeud
 		if(prof == 0 || j.isFinPartie() ){
 			this.calculValeurNoeud(j);
 		} else {
 			for(Piece p : coupsPiece){
+				// Le premier a jouer donne uniquement une piece, on teste donc si la liste des coup existe
 				if(coupsCase != null){
 					for(Case c:coupsCase){
+						
+						//on effectue le coup c
 						j.getActif().choisirCaseAction(c);
+						
+						//Si la partie n'est pas terminee, on donne une piece a l'adversaire
 						if(!j.isFinPartie() && !j.getPieces().isEmpty()){
 							j.getNonActif().choisirPieceAction(p);
+							
+							//on créé un nouveau noeud et on calcul sa valeur
 							NoeudAbstrait n =this.ajouterFils(c, p);
 							n.calculIA(j,n.getCoupsCases(j), n.getCoupsPieces(j), prof-1);
 							this.calculValeurNoeud(j);
+							
+							//suppression des branche inutiles
 							elaguer = n.elagage();
+							
+							//annulation du don de la piece
 							this.annulerCoupPiece(j);
 						} else {
+							//on créé un nouveau noeud et on calcul sa valeur
 							NoeudAbstrait n =this.ajouterFils(c, p);
 							n.calculIA(j,n.getCoupsCases(j), n.getCoupsPieces(j), prof-1);
 							this.calculValeurNoeud(j);
+							
+							//suppression des branche inutiles
 							elaguer = n.elagage();
 						}
+						
+						//annulation du coup
 						this.annulerCoupCase(j, c);
+						
+						//si l'elagagage a fonctionné, il ne sert à rien de continuer sur cette branche
 						if(elaguer){
 							break;
 						}
 					}
 				} else{
+					//si on c'est le premier tour (don d'une piece seulement)
 					j.getNonActif().choisirPieceAction(p);
 					NoeudAbstrait n =this.ajouterFils(null, p);
 					n.calculIA(j,n.getCoupsCases(j), n.getCoupsPieces(j), prof-1);
@@ -66,6 +109,8 @@ public abstract class NoeudAbstrait {
 					elaguer = n.elagage();
 					this.annulerCoupPiece(j);
 				}
+				
+				//si l'elagagage a fonctionné, il ne sert à rien de continuer sur cette branche
 				if(elaguer){
 					break;
 				}
@@ -73,6 +118,11 @@ public abstract class NoeudAbstrait {
 		}
 	}
 	
+	/**
+	 * Annulation du depot d'une piece dans une case
+	 * @param j La situation du jeu en cours
+	 * @param c La case dans laquelle la piece a ete jouee 
+	 */
 	public void annulerCoupCase(Jeu j, Case c){
 		j.changerActif();
 		j.getActif().setMain(c.getPiece());
@@ -81,6 +131,10 @@ public abstract class NoeudAbstrait {
 		if(j.isFinPartie()) j.setFinPartie(false);
 	}
 	
+	/**
+	 * Annulation du don d'une piece a l'adversaire
+	 * @param j La situation du jeu en cours
+	 */
 	public void annulerCoupPiece(Jeu j){
 		j.getPieces().add(j.getActif().getMain());
 		j.getActif().setMain(null);
@@ -113,12 +167,21 @@ public abstract class NoeudAbstrait {
 	public Case getCoupCase() {
 		return coupCase;
 	}
-	
+	/**
+	 * Renvoie les pieces disponibles
+	 * @param j La situation du jeu en cours
+	 * @return pieces disponibles
+	 */
 	public ArrayList<Piece> getCoupsPieces(Jeu j){
 		ArrayList<Piece> coups = (ArrayList<Piece>) j.getPieces().clone();
 		return coups;
 	}
 	
+	/**
+	 * Renvoie les cases disponibles
+	 * @param j La situation du jeu en cours
+	 * @return les cases disponibles
+	 */
 	public ArrayList<Case> getCoupsCases(Jeu j){
 		ArrayList<Case> coups = new ArrayList<Case>();
 		for(Case c:j.getPlateau().getCases()){

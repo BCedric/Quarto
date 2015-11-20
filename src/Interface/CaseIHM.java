@@ -28,6 +28,10 @@ public class CaseIHM extends JPanel{
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 	}
 	
+	/**
+	 * Fonction permettant d'ajouter une piece dans la vue
+	 * @param p la piece  a ajouter
+	 */
 	public void insererPiece(PieceIHM p){
 		this.add(p);
 		this.repaint();

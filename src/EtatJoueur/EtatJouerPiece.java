@@ -9,7 +9,6 @@ import Interface.FenetreFinDePartie;
 import Interface.FenetreJeu;
 import Interface.PieceIHM;
 import Jeu.Case;
-import Jeu.CaseOccupeeException;
 import Jeu.Joueur;
 import Jeu.Ligne;
 
@@ -19,6 +18,7 @@ public class EtatJouerPiece extends EtatJoueur{
 		super(j);
 	}
 	
+	@Override
 	public boolean choisirCase(Case c){
 		boolean finPartie;
 		finPartie = j.getJeu().placerPiece(j.getMain(), c);
