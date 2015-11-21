@@ -13,7 +13,7 @@ public abstract class IA {
 
 	protected Joueur j;
 	protected Jeu jeu;
-	protected int profondeur =2;
+	protected int profondeur =3;
 	
 	public IA(Jeu jeu, Joueur j){
 		this.jeu =jeu;
@@ -24,7 +24,7 @@ public abstract class IA {
 	 * @param j la situation du jeu en cours
 	 * @return renvoie un entier qui rend compte de la situation de la partie
 	 */
-	public abstract int evaluation(Jeu j);
+	public abstract int evaluation(Jeu j, NoeudAbstrait n);
 	
 	/**
 	 * Fonction permettant de choisir le coup à jouer (coup à jouer et piece à donner à l'adversaire)

@@ -20,7 +20,7 @@ public class NoeudMax extends NoeudAbstrait {
 	@Override
 	public void calculValeurNoeud(Jeu j) {
 		if(this.estFeuille()){
-			this.valeur = ia.evaluation(j);
+			this.valeur = ia.evaluation(j, this);
 		} else {
 			int val = this.fils.get(0).getValeur();
 			for(NoeudAbstrait n:this.fils){
