@@ -43,6 +43,10 @@ public class Ligne {
 		}
 	}
 	
+	public ArrayList<Case> getCases() {
+		return cases;
+	}
+
 	/**
 	 * Fonction renvoyant la liste des caractéristiques communes des pieces présentes sur la ligne 
 	 * @return les caractéristique communes aux pieces 
