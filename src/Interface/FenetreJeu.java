@@ -70,7 +70,7 @@ public class FenetreJeu extends JFrame{
 	}
 	
 	/**
-	 * Fonction qui enlève une piece de l'ensemble des piece et la pose la zone du joueur qui va ensuite la jouer
+	 * Fonction qui enleve une piece de l'ensemble des piece et la pose la zone du joueur qui va ensuite la jouer
 	 * @param p piece a deplacer
 	 */
 	public void choisirPiece(PieceIHM p){
@@ -107,7 +107,7 @@ public class FenetreJeu extends JFrame{
 	}
 
 	/**
-	 * Fonction qui enlève les pieces du conteneur piecesDispo
+	 * Fonction qui enleve les pieces du conteneur piecesDispo
 	 */
 	public void finPartie() {
 		JLabel text = new JLabel("Fin");

@@ -18,7 +18,7 @@ public class Ligne {
 	 * Teste si la ligne est complete
 	 * @return true si la ligne est complete, false sinon
 	 */
-	public boolean estComplète(){
+	public boolean estComplete(){
 		for(Case c:this.cases){
 			if(c.estVide()){
 				return false;
@@ -28,11 +28,11 @@ public class Ligne {
 	}
 	
 	/**
-	 * Teste si la partie est terminée
-	 * @return true si la partie est terminée
+	 * Teste si la partie est terminee
+	 * @return true si la partie est terminee
 	 */
 	public boolean finPartie(){
-		if(this.estComplète()){
+		if(this.estComplete()){
 			if(this.caracteristiquesCommunes().isEmpty()){
 				return false;
 			}
@@ -48,8 +48,8 @@ public class Ligne {
 	}
 
 	/**
-	 * Fonction renvoyant la liste des caractéristiques communes des pieces présentes sur la ligne 
-	 * @return les caractéristique communes aux pieces 
+	 * Fonction renvoyant la liste des caracteristiques communes des pieces presentes sur la ligne 
+	 * @return les caracteristique communes aux pieces 
 	 */
 	public ArrayList<String> caracteristiquesCommunes(){
 		ArrayList<String> caracCommunesGlobales = new ArrayList<String>();

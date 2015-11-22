@@ -34,23 +34,23 @@ public abstract class NoeudAbstrait {
 	
 	/**
 	 * Ajout d'un fils 
-	 * @param c le coup à jouer pour arriver dans cette configuration
+	 * @param c le coup a jouer pour arriver dans cette configuration
 	 * @param p la piece a donner pour arriver dans cette configuration
-	 * @return le noeud créé
+	 * @return le noeud cree
 	 */
 	public abstract NoeudAbstrait ajouterFils(Case c, Piece p);
 	
 	/**
 	 * fonction supprimant les branches inutiles
-	 * @return true si la branche a été supprimée, false sinon
+	 * @return true si la branche a ete supprimee, false sinon
 	 */
 	public abstract boolean elagage();
 	
 	/**
-	 * Fonction qui créée l'arbre et choisi le coup à jouer
+	 * Fonction qui creee l'arbre et choisi le coup a jouer
 	 * @param j la situation du jeu en cours
 	 * @param coupsCase les coups possibles
-	 * @param coupsPiece les pieces disponible à donner a l'adversaire
+	 * @param coupsPiece les pieces disponible a donner a l'adversaire
 	 * @param prof la profodeur de l'arbre
 	 */
 	public void calculIA(Jeu j, ArrayList<Case> coupsCase, ArrayList<Piece> coupsPiece, int prof){
@@ -72,7 +72,7 @@ public abstract class NoeudAbstrait {
 						if(!j.isFinPartie() && !j.getPieces().isEmpty()){
 							j.getNonActif().choisirPieceAction(p);
 							
-							//on créé un nouveau noeud et on calcul sa valeur
+							//on cree un nouveau noeud et on calcul sa valeur
 							NoeudAbstrait n =this.ajouterFils(c, p);
 							n.calculIA(j,n.getCoupsCases(j), n.getCoupsPieces(j), prof-1);
 							this.calculValeurNoeud(j);
@@ -83,7 +83,7 @@ public abstract class NoeudAbstrait {
 							//annulation du don de la piece
 							this.annulerCoupPiece(j);
 						} else {
-							//on créé un nouveau noeud et on calcul sa valeur
+							//on cree un nouveau noeud et on calcul sa valeur
 							NoeudAbstrait n =this.ajouterFils(c, p);
 							n.calculIA(j,n.getCoupsCases(j), n.getCoupsPieces(j), prof-1);
 							this.calculValeurNoeud(j);
@@ -95,7 +95,7 @@ public abstract class NoeudAbstrait {
 						//annulation du coup
 						this.annulerCoupCase(j, c);
 						
-						//si l'elagagage a fonctionné, il ne sert à rien de continuer sur cette branche
+						//si l'elagagage a fonctionne, il ne sert a rien de continuer sur cette branche
 						if(elaguer){
 							break;
 						}
@@ -110,7 +110,7 @@ public abstract class NoeudAbstrait {
 					this.annulerCoupPiece(j);
 				}
 				
-				//si l'elagagage a fonctionné, il ne sert à rien de continuer sur cette branche
+				//si l'elagagage a fonctionne, il ne sert a rien de continuer sur cette branche
 				if(elaguer){
 					break;
 				}

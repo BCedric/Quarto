@@ -35,7 +35,7 @@ public class Joueur {
 	/**
 	 * Action de choisir une case 
 	 * @param c Case choisie
-	 * @return renvoie vrai si le coup déclenche une fin de partie
+	 * @return renvoie vrai si le coup declenche une fin de partie
 	 */
 	public boolean choisirCaseAction(Case c){
 		this.jeu.setFinPartie(this.etatCourant.choisirCase(c));

@@ -38,7 +38,7 @@ public class SelectionPieceAction implements MouseListener {
 				}
 				long tempsFin = System.currentTimeMillis();
 				float seconds = (tempsFin - tempsDebut) / 1000F;
-				System.out.println("Opération effectuée en: "+ Float.toString(seconds) + " secondes.");
+				System.out.println("Operation effectuee en: "+ Float.toString(seconds) + " secondes.");
 			}
 		}
 	}

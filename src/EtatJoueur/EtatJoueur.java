@@ -19,7 +19,7 @@ public abstract class EtatJoueur {
 	 * @param p piece choisie
 	 */
 	public void choisirPiece(Piece p){
-		System.out.println("Vous ne pouvez pas choisir de pièce maintenant");
+		System.out.println("Vous ne pouvez pas choisir de piece maintenant");
 	}
 	
 	/**

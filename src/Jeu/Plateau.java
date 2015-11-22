@@ -53,10 +53,10 @@ public class Plateau {
 	
 	/**
 	 * ajout d'une ligne sur le plateau
-	 * @param c1 Case à ajouter a la ligne
-	 * @param c2 Case à ajouter a la ligne
-	 * @param c3 Case à ajouter a la ligne
-	 * @param c4 Case à ajouter a la ligne
+	 * @param c1 Case a ajouter a la ligne
+	 * @param c2 Case a ajouter a la ligne
+	 * @param c3 Case a ajouter a la ligne
+	 * @param c4 Case a ajouter a la ligne
 	 */
 	private void addLigne(Case c1, Case c2, Case c3, Case c4){
 		Case [] l ={c1,c2,c3,c4}; 

@@ -27,7 +27,7 @@ public abstract class IA {
 	public abstract int evaluation(Jeu j, NoeudAbstrait n);
 	
 	/**
-	 * Fonction permettant de choisir le coup à jouer (coup à jouer et piece à donner à l'adversaire)
+	 * Fonction permettant de choisir le coup a jouer (coup a jouer et piece a donner a l'adversaire)
 	 */
 	public void jouerPieceChoisirPiece(){
 		//Creation de la racine
@@ -37,13 +37,13 @@ public abstract class IA {
 		
 		racine.calculIA(this.jeu, racine.getCoupsCases(jeu), racine.getCoupsPieces(jeu), this.profondeur);
 		
-		//du coup à jouer
+		//du coup a jouer
 		for(NoeudAbstrait n:racine.fils){
 			if(n.getValeur() == racine.getValeur()){
 				Case c = n.getCoupCase();
 				Piece p = n.getCoupPiece();
 				
-				//joue la piece donnée par l'adversaire
+				//joue la piece donnee par l'adversaire
 				jeu.getVue().jouerPiece(jeu.getVue().getPlateau().getCase(c.getId()));
 				j.choisirCaseAction(c);
 				
@@ -59,7 +59,7 @@ public abstract class IA {
 					}
 					
 				} else {
-					//sinon, on choisi la piece à donner à l'adversaire
+					//sinon, on choisi la piece a donner a l'adversaire
 					this.j.choisirPieceAction(p);
 					jeu.getVue().choisirPiece(jeu.getVue().getPiecesDispo().getPiece(p.getId()));
 				}
@@ -70,7 +70,7 @@ public abstract class IA {
 	}
 	
 	/**
-	 * Fonction permettant de choisir la piece à donner à l'adversaire
+	 * Fonction permettant de choisir la piece a donner a l'adversaire
 	 */
 	public void choisirPiece(){
 		NoeudMax racine = new NoeudMax(null,this, null, null);
