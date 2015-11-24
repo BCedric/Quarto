@@ -18,17 +18,12 @@ public class IA2 extends IA{
 	@Override
 	public int evaluation(Jeu jeu, NoeudAbstrait n) {
 		int eval = 0;
-		if(jeu.getActif() == this.j){
-			if(this.peutGagner(jeu)) eval +=20;
-			if(this.jeu.isFinPartie()) eval-=20;
-			if(this.placementParDefault(jeu,n)) eval-=10;
-			if(this.EviterLigneAvecUneCaseVide(jeu, n)) eval+=10;
-		} else {
-			if(this.peutGagner(jeu)) eval -=20;
+			if(this.peutGagner(jeu)) {
+				eval -=10000;
+			}
 			if(this.jeu.isFinPartie()) eval+=20;
 			if(this.placementParDefault(jeu,n)) eval+=10;
 			if(this.EviterLigneAvecUneCaseVide(jeu, n)) eval-=10;
-		}
 		
 		return eval;
 	}

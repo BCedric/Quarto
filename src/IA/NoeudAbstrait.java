@@ -78,7 +78,7 @@ public abstract class NoeudAbstrait {
 							this.calculValeurNoeud(j);
 							
 							//suppression des branche inutiles
-							elaguer = n.elagage();
+//							elaguer = n.elagage();
 							
 							//annulation du don de la piece
 							this.annulerCoupPiece(j);
@@ -89,7 +89,7 @@ public abstract class NoeudAbstrait {
 							this.calculValeurNoeud(j);
 							
 							//suppression des branche inutiles
-							elaguer = n.elagage();
+//							elaguer = n.elagage();
 						}
 						
 						//annulation du coup
@@ -106,7 +106,7 @@ public abstract class NoeudAbstrait {
 					NoeudAbstrait n =this.ajouterFils(null, p);
 					n.calculIA(j,n.getCoupsCases(j), n.getCoupsPieces(j), prof-1);
 					this.calculValeurNoeud(j);
-					elaguer = n.elagage();
+//					elaguer = n.elagage();
 					this.annulerCoupPiece(j);
 				}
 				

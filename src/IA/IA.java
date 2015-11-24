@@ -13,7 +13,7 @@ public abstract class IA {
 
 	protected Joueur j;
 	protected Jeu jeu;
-	protected int profondeur =3;
+	protected int profondeur = 4;
 	
 	public IA(Jeu jeu, Joueur j){
 		this.jeu =jeu;
@@ -67,6 +67,7 @@ public abstract class IA {
 				break;
 			}
 		}
+		System.out.println(racine.getValeur());
 	}
 	
 	/**

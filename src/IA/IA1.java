@@ -12,11 +12,9 @@ public class IA1 extends IA{
 	@Override
 	public int evaluation(Jeu j, NoeudAbstrait n) {
 		int i=0;
-//		i = (int) (Math.random()*100)+1;
-		if(j.isFinPartie() && j.getNonActif() == this.j){
-			i+=20;
-		} else {
-			i-=20;
+		i = (int) (Math.random()*100);
+		if(j.isFinPartie()){
+			i+=100;
 		}
 		return i;
 	}
