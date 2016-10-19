@@ -1,5 +1,3 @@
-# Quarto
-
 Quarto
 ==
 
